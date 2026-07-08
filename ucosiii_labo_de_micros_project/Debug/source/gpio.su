@@ -1,0 +1,12 @@
+../source/gpio.c:52:6:gpioMode	16	static
+../source/gpio.c:86:6:gpioIRQ	16	static
+../source/gpio.c:146:6:gpioWrite	16	static
+../source/gpio.c:167:6:gpioToggle	16	static
+../source/gpio.c:177:6:gpioRead	16	static
+../source/gpio.c:182:6:gpioRead_ISF	16	static
+../source/gpio.c:187:6:gpioClear_ISF	16	static
+../source/gpio.c:192:9:PORTA_IRQHandler	16	static
+../source/gpio.c:205:9:PORTB_IRQHandler	16	static
+../source/gpio.c:221:9:PORTC_IRQHandler	8	static
+../source/gpio.c:243:9:PORTD_IRQHandler	16	static
+../source/gpio.c:256:9:PORTE_IRQHandler	16	static

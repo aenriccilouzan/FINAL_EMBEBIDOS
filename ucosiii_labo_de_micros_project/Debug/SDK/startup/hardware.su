@@ -1,0 +1,5 @@
+../SDK/CMSIS/core_cm4.h:1678:22:__NVIC_EnableIRQ	16	static
+../SDK/CMSIS/core_cm4.h:1806:22:__NVIC_SetPriority	16	static
+../SDK/startup/hardware.c:11:6:hw_Init	8	static
+../SDK/startup/hardware.c:51:6:hw_EnableInterrupts	8	static
+../SDK/startup/hardware.c:76:6:hw_DisableInterrupts	4	static

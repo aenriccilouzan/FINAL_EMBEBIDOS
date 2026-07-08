@@ -1,0 +1,5 @@
+../source/encoder.c:47:6:enconderInit	16	static
+../source/encoder.c:76:6:cambiar_estado_A	8	static
+../source/encoder.c:165:6:timer_btn_fun	16	static
+../source/encoder.c:185:5:update_encoder	16	static
+../source/encoder.c:203:6:encoderReset	4	static

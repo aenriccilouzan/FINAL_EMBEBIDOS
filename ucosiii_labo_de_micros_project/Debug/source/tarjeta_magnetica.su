@@ -1,0 +1,4 @@
+../source/tarjeta_magnetica.c:34:6:inicializar_tarjeta	8	static
+../source/tarjeta_magnetica.c:44:6:guardar_dato_serie	16	static
+../source/tarjeta_magnetica.c:92:6:guardar_caracter	32	static
+../source/tarjeta_magnetica.c:209:6:reset_datos_tarjeta	24	static
