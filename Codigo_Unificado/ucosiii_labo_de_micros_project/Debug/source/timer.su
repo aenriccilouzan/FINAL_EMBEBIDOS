@@ -1,8 +1,0 @@
-../source/timer.c:33:6:timerInit	16	static
-../source/timer.c:42:10:timerGetId	16	static
-../source/timer.c:53:10:timerStart	32	static
-../source/timer.c:99:6:timerStop	16	static
-../source/timer.c:103:6:timerExpired	16	static
-../source/timer.c:107:6:timerUpdate	16	static
-../source/timer.c:130:6:interrupt_fun	16	static
-../source/timer.c:153:6:timerRestart	16	static

@@ -1,3 +1,0 @@
-../source/fsm.c:37:6:do_nothing	4	static
-../source/fsm.c:133:8:FSM_GetInitState	4	static
-../source/fsm.c:138:8:fsm	16	static
