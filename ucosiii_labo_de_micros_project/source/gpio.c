@@ -206,7 +206,6 @@ __ISR__ PORTB_IRQHandler()
 {
 	OSIntEnter();
 
-	gpioWrite(PIN_LED_EXAMEN1, HIGH);
 	for (int i = 0; i < contadorB; i++){
 		if (gpioRead_ISF(PortB_pines_irq[i])){
 			 gpioClear_ISF(PortB_pines_irq[i]);
@@ -214,7 +213,6 @@ __ISR__ PORTB_IRQHandler()
 			 break;
 		}
 	}
-	gpioWrite(PIN_LED_EXAMEN1, LOW);
 	OSIntExit();
 }
 

@@ -5,8 +5,8 @@
 ../source/display.c:89:6:brillantina_de_display	16	static
 ../source/display.c:108:9:transformar_a_binario	24	static
 ../source/display.c:135:6:atender_llamada_usuario	32	static
-../source/display.c:180:5:traductor_palabra_a_trama	24	static
-../source/display.c:197:6:callback_actualizar_display	8	static
-../source/display.c:219:6:callback_desplazamiento	4	static
-../source/display.c:234:6:prender_ledcitos	16	static
-../source/display.c:241:6:mostrar_en_display	24	static
+../source/display.c:178:5:traductor_palabra_a_trama	24	static
+../source/display.c:195:6:callback_actualizar_display	8	static
+../source/display.c:217:6:callback_desplazamiento	4	static
+../source/display.c:232:6:prender_ledcitos	16	static
+../source/display.c:239:6:mostrar_en_display	24	static

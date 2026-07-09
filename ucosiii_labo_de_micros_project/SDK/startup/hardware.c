@@ -24,15 +24,15 @@ void hw_Init (void)
 	SIM->SCGC5 |= SIM_SCGC5_PORTA_MASK | SIM_SCGC5_PORTB_MASK | SIM_SCGC5_PORTC_MASK | SIM_SCGC5_PORTD_MASK | SIM_SCGC5_PORTE_MASK; /* All PORTs enabled */
 
 	MCG->SC = MCG_SC_FCRDIV(0x02); /* Fast clock internal reference divider */
-	MCG->C2 = MCG_C2_RANGE(0x02) | MCG_C2_EREFS_MASK;
-//	OSC->CR = OSC_CR_ERCLKEN_MASK; /* Set external reference clock (OSCERCLK) */
-	OSC->CR = OSC_CR_ERCLKEN_MASK | OSC_CR_SC16P_MASK | OSC_CR_SC4P_MASK;
+	MCG->C2 = MCG_C2_RANGE(0x02) | MCG_C2_EREFS_MASK; /* High frequency range external reference selection */
+
+	OSC->CR = OSC_CR_ERCLKEN_MASK | OSC_CR_SC16P_MASK | OSC_CR_SC4P_MASK; /* Set external reference clock (OSCERCLK) */
+
 	MCG->C7 = MCG_C7_OSCSEL(0x00); /* Set FLL external reference clock (OSCCLK0) */
 	MCG->C1 = MCG_C1_CLKS(0x02) | MCG_C1_FRDIV(0x07); /* Set external reference as source, FLL external reference divider (PBE mode) */
 	while((MCG->S & MCG_S_IREFST_MASK) != 0x00U); /* Check external reference validation */
-	while((MCG->S & MCG_S_OSCINIT0_MASK) == 0x00U);
-	MCG->C5 = MCG_C5_PRDIV0(0x09); /* Set PLL divider while PLL turned off */
-	MCG->C6 = MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x10); /* Set PLL multiplier and PLL select */
+	MCG->C5 = MCG_C5_PRDIV0(0x07); /* CHANGEEE Set PLL divider while PLL turned off */
+	MCG->C6 = MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x08); /* Set PLL multiplier and PLL select */
 	while((MCG->S & MCG_S_LOCK0_MASK) == 0x00U); /* Wait until PLL is locked*/
 	MCG->C1 &= ~MCG_C1_CLKS_MASK;
 	while((MCG->S & MCG_S_CLKST_MASK) != 0x0CU); /* Wait until output of the PLL is selected */

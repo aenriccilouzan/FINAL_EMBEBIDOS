@@ -34,16 +34,16 @@ void reset_datos_tarjeta(void);
 void inicializar_tarjeta(void)
 {
 	//OSSemCreate(&semaforo_tarjeta, "Sem Tarjeta", 0, &os_err);
-	gpioMode(ENABLE_TARJETA_MAGNETICA, INPUT_PULLUP);
-	gpioMode(DATA_TARJETA, INPUT_PULLUP);
-	gpioMode(CLOCK_TARJETA_MAGNETICA, INPUT_PULLUP);
+	gpioMode(ENABLE_TARJETA_MAGNETICA, INPUT);
+	gpioMode(DATA_TARJETA, INPUT);
+	gpioMode(CLOCK_TARJETA_MAGNETICA, INPUT);
 	reset_datos_tarjeta();
 	gpioIRQ(CLOCK_TARJETA_MAGNETICA, GPIO_IRQ_MODE_FALLING_EDGE, &guardar_dato_serie);
 }
 
 void guardar_dato_serie(void){ //contador empieza en 0, recibo el primer bit lo guardo en la primera posicion
 
-	//OSIntEnter();
+	OSIntEnter();
 	//timerRestart(id_sleep);
 	static bool contador_de_unos=0; //HACER UNA XOR QUE COMPARA PARIDAD CONTADORUNOS XOR= BIT ACTUAL
 	bool bit_actual;

@@ -52,7 +52,7 @@ void Timer_PIT_Init(uint32_t frequency) {
 void PIT0_IRQHandler(void) {
     OS_ERR  err;
     CPU_SR_ALLOC();
-    OSIntEnter();          // Avisar a Micrium
+
     CPU_CRITICAL_ENTER();
     OSIntEnter();          // Avisar a Micriµm que estamos en ISR
     CPU_CRITICAL_EXIT();

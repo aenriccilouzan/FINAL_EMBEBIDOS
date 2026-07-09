@@ -134,8 +134,6 @@ uint8_t transformar_a_binario (char caracter){
 
 void atender_llamada_usuario (char palabra [], bool usuario_desplazar, int nivel_brillito){
     nivel_de_brillo = nivel_brillito;
-    gpioMode(PORTNUM2PIN(PB,19), OUTPUT);
-    gpioWrite(PORTNUM2PIN(PB,19),LOW);
     brillantina_de_display(nivel_de_brillo);
 	desplazamiento = 0;
 	flag_desplazamiento=usuario_desplazar;

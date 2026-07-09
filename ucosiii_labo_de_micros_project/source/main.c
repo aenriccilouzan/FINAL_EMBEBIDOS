@@ -152,6 +152,7 @@ static void TaskStart(void *p_arg) {
             	        for (int i = 0; i < 19; i++) {
             	            pan_recibido[i] = puntero_temporal[i];
             	        }
+            	        p2state=fsm(p2state,revisar_eventos(LECTOR_TARJETA_CAMBIO));
             }
 
 //			timerUpdate(); // Actualizar timers de software

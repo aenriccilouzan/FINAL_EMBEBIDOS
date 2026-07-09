@@ -7,6 +7,6 @@
 ../source/gpio.c:187:6:gpioClear_ISF	16	static
 ../source/gpio.c:192:9:PORTA_IRQHandler	16	static
 ../source/gpio.c:205:9:PORTB_IRQHandler	16	static
-../source/gpio.c:221:9:PORTC_IRQHandler	8	static
-../source/gpio.c:243:9:PORTD_IRQHandler	16	static
-../source/gpio.c:256:9:PORTE_IRQHandler	16	static
+../source/gpio.c:219:9:PORTC_IRQHandler	8	static
+../source/gpio.c:241:9:PORTD_IRQHandler	16	static
+../source/gpio.c:254:9:PORTE_IRQHandler	16	static

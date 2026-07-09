@@ -131,18 +131,12 @@ void App_Init(void)
      timerInit();
      //enconderInit(NULL);
      //Inicializar displays
-     //iniciar_display();
+     iniciar_display();
 
      //inicializamos la tarjeta
      inicializar_tarjeta();
-     gpioMode(PORTNUM2PIN(PB,17), OUTPUT);
-     gpioWrite(PORTNUM2PIN(PB,17), HIGH);
-     gpioMode(PORTNUM2PIN(PB,19), OUTPUT);
-     gpioWrite(PORTNUM2PIN(PB,19), HIGH);
 
      id_sleep = timerStart(10000, TIM_MODE_PERIODIC_CRITICAL, sleep_reset);
-     gpioMode(PORTNUM2PIN(PB,17), OUTPUT);
-     gpioWrite(PORTNUM2PIN(PB,17), LOW);
 
      atender_llamada_usuario("HOLA", false, brillo_actual);
      boton_encoder_presionado=enconderInit(&cambiar_estado_Boton);
