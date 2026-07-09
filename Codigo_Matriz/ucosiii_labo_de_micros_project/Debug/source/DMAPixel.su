@@ -1,0 +1,33 @@
+C:\Alvaro\Sistemas Embebidos\TP FINAL FEBRERO\ucosiii_labo_de_micros_project\SDK\CMSIS/core_cm4.h:1677:22:__NVIC_EnableIRQ	16	static
+C:\Alvaro\Sistemas Embebidos\TP FINAL FEBRERO\ucosiii_labo_de_micros_project\drivers/fsl_clock.h:668:20:CLOCK_EnableClock	24	static
+C:\Alvaro\Sistemas Embebidos\TP FINAL FEBRERO\ucosiii_labo_de_micros_project\drivers/fsl_port.h:271:20:PORT_SetPinConfig	32	static
+C:\Alvaro\Sistemas Embebidos\TP FINAL FEBRERO\ucosiii_labo_de_micros_project\drivers/fsl_port.h:374:20:PORT_SetPinMux	24	static
+C:\Alvaro\Sistemas Embebidos\TP FINAL FEBRERO\ucosiii_labo_de_micros_project\drivers/fsl_ftm.h:679:20:FTM_SetTimerPeriod	16	static
+C:\Alvaro\Sistemas Embebidos\TP FINAL FEBRERO\ucosiii_labo_de_micros_project\drivers/fsl_ftm.h:731:20:FTM_StartTimer	24	static
+C:\Alvaro\Sistemas Embebidos\TP FINAL FEBRERO\ucosiii_labo_de_micros_project\drivers/fsl_ftm.h:745:20:FTM_StopTimer	16	static
+C:\Alvaro\Sistemas Embebidos\TP FINAL FEBRERO\ucosiii_labo_de_micros_project\drivers/fsl_dmamux.h:75:20:DMAMUX_EnableChannel	16	static
+C:\Alvaro\Sistemas Embebidos\TP FINAL FEBRERO\ucosiii_labo_de_micros_project\drivers/fsl_dmamux.h:109:20:DMAMUX_SetSource	24	static
+../source/DMAPixel.c:83:6:EDMA_Callback	32	static
+../source/DMAPixel.c:120:13:StartStopFTM	16	static
+../source/DMAPixel.c:130:13:ResetFTM	24	static
+../source/DMAPixel.c:148:13:StopFTMDMA	16	static
+../source/DMAPixel.c:156:13:InitFlexTimer	48	static
+../source/DMAPixel.c:188:6:DMA2_IRQHandler	16	static
+../source/DMAPixel.c:204:6:DMA_Transfer	56	static
+../source/DMAPixel.c:274:6:DMA_Transfer_finished	8	static
+../source/DMAPixel.c:285:13:InitHardware	16	static
+../source/DMAPixel.c:329:6:DMA_Init	16	static
+../source/DMAPixel.c:382:6:setPixelXY	24	static
+../source/DMAPixel.c:399:6:IncrementOccupancy	16	static
+../source/DMAPixel.c:420:6:DrawOccupancy	40	static
+../source/DMAPixel.c:469:6:RNG_Init	4	static
+../source/DMAPixel.c:479:10:getRandom	16	static
+../source/DMAPixel.c:484:6:initBuffer	16	static
+../source/DMAPixel.c:490:6:setPixel	24	static
+../source/DMAPixel.c:514:6:setAll	24	static
+../source/DMAPixel.c:520:6:theaterChase	32	static
+../source/DMAPixel.c:540:6:FadeInOut	64	static
+../source/DMAPixel.c:569:6:colorWipe	32	static
+../source/DMAPixel.c:581:6:Twinkle	40	static
+../source/DMAPixel.c:599:6:randomColors	32	static
+../source/DMAPixel.c:609:6:delay	24	static

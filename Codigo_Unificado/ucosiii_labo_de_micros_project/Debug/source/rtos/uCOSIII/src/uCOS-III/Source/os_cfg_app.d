@@ -1,0 +1,23 @@
+source/rtos/uCOSIII/src/uCOS-III/Source/os_cfg_app.o \
+ source/rtos/uCOSIII/src/uCOS-III/Source/os_cfg_app.d: \
+ ../source/rtos/uCOSIII/src/uCOS-III/Source/os_cfg_app.c \
+ G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\ucosiii_config/os_cfg_app.h \
+ ../source/rtos/uCOSIII/src/uCOS-III/Source/os.h \
+ G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\ucosiii_config/os_cfg.h \
+ G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uC-CPU/cpu_core.h \
+ G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uC-CPU\ARM-Cortex-M4\GNU/cpu.h \
+ G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uC-CPU/cpu_def.h \
+ G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\ucosiii_config/cpu_cfg.h \
+ G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uC-LIB/lib_def.h \
+ G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uCOS-III\Source/os_type.h \
+ G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uCOS-III\Ports\ARM-Cortex-M4\Generic\GNU/os_cpu.h
+G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\ucosiii_config/os_cfg_app.h:
+../source/rtos/uCOSIII/src/uCOS-III/Source/os.h:
+G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\ucosiii_config/os_cfg.h:
+G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uC-CPU/cpu_core.h:
+G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uC-CPU\ARM-Cortex-M4\GNU/cpu.h:
+G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uC-CPU/cpu_def.h:
+G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\ucosiii_config/cpu_cfg.h:
+G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uC-LIB/lib_def.h:
+G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uCOS-III\Source/os_type.h:
+G:\Mi\ unidad\Sync\ 1Q2026\TP_Final_Embebidos\Version_Anda\ucosiii_labo_de_micros_project\source\rtos\uCOSIII\src\uCOS-III\Ports\ARM-Cortex-M4\Generic\GNU/os_cpu.h:

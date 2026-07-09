@@ -1,0 +1,5 @@
+C:\Alvaro\Sistemas Embebidos\TP FINAL FEBRERO\ucosiii_labo_de_micros_project\SDK\CMSIS/core_cm4.h:1805:22:__NVIC_SetPriority	16	static
+../source/main.c:58:13:Task2	48	static
+../source/main.c:111:13:Task3	32	static
+../source/main.c:151:13:TaskStart	64	static
+../source/main.c:224:5:main	56	static

@@ -1,0 +1,4 @@
+../source/main.c:76:6:TaskClock	24	static
+../source/main.c:93:13:TaskStart	80	static
+../source/main.c:162:6:App_Task2kHz	32	static
+../source/main.c:188:5:main	56	static
