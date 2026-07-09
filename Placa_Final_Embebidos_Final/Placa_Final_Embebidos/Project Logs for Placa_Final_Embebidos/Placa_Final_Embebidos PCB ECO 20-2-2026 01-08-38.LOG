@@ -1,0 +1,10 @@
+Change Component Footprint: Designator=U? Old Footprint=K64F_DevBoard_Headers_MIRROR New Footprint=K64F_DevBoard_Headers_MIRROR
+Change Component Footprint: Designator=U? Old Footprint=K64F_DevBoard_Headers_MIRROR New Footprint=K64F_DevBoard_Headers_MIRROR
+Added Component: Designator=ENC?(FP-PEC12R-3217F-S0024-MFG)
+Add component (AddParameter): Name = "Height"; Value = "13.4mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = "23mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS Compliant"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Width"; Value = "12.5mm"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Placa_Final_Embebidos Member=Component ENC? PEC12R-3217F-S0024
+Added Member To Class: ClassName=Placa_Final_Embebidos Member=Component U? MK64FN1M0VLL12
+Added Member To Class: ClassName=Placa_Final_Embebidos Member=Component U? MK64FN1M0VLL12

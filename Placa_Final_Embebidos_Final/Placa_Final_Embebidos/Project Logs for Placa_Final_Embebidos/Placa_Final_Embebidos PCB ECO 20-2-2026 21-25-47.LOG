@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=SERIAL_CLOCK Pin=U1-91
+Added Pin To Net: NetName=SERIAL_CLOCK Pin=U1-71

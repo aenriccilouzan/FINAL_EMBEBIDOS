@@ -1,0 +1,179 @@
+Removed Pin From Net: NetName=3V3 Pin=C2-1
+Removed Pin From Net: NetName=EXTAL0 Pin=C4-1
+Removed Pin From Net: NetName=XTAL0 Pin=C5-1
+Removed Pin From Net: NetName=GND Pin=C5-2
+Removed Pin From Net: NetName=5V Pin=C7-1
+Removed Pin From Net: NetName=GND Pin=C7-2
+Removed Pin From Net: NetName=3V3 Pin=D1-1
+Removed Pin From Net: NetName=3V3 Pin=D2-1
+Removed Pin From Net: NetName=3V3 Pin=D3-1
+Removed Pin From Net: NetName=3V3 Pin=D4-1
+Removed Pin From Net: NetName=5V Pin=J1-1
+Removed Pin From Net: NetName=GND Pin=J1-2
+Removed Pin From Net: NetName=3V3 Pin=P1-1
+Removed Pin From Net: NetName=5V Pin=P2-1
+Removed Pin From Net: NetName=GND Pin=P2-2
+Removed Pin From Net: NetName=GND Pin=P2-4
+Removed Pin From Net: NetName=3V3 Pin=R21-2
+Removed Pin From Net: NetName=5V Pin=R22-1
+Removed Pin From Net: NetName=5V Pin=R25-1
+Removed Pin From Net: NetName=3V3 Pin=R28-2
+Removed Pin From Net: NetName=5V Pin=R29-1
+Removed Pin From Net: NetName=3V3 Pin=R33-1
+Removed Pin From Net: NetName=3V3 Pin=R34-2
+Removed Pin From Net: NetName=3V3 Pin=R35-1
+Removed Pin From Net: NetName=GND Pin=R37-1
+Removed Pin From Net: NetName=3V3 Pin=U4-2
+Removed Pin From Net: NetName=GND Pin=U5-1
+Removed Pin From Net: NetName=5V Pin=U5-4
+Removed Pin From Net: NetName=GND Pin=U5-5
+Removed Pin From Net: NetName=GND Pin=U5-9
+Removed Pin From Net: NetName=5V Pin=U5-10
+Removed Pin From Net: NetName=GND Pin=U5-12
+Removed Pin From Net: NetName=5V Pin=U5-13
+Removed Pin From Net: NetName=GND Pin=U6-7
+Removed Pin From Net: NetName=5V Pin=U6-14
+Removed Pin From Net: NetName=EXTAL0 Pin=Y1-1
+Removed Pin From Net: NetName=XTAL0 Pin=Y1-2
+Removed Member From Class: ClassName=Placa_Final_Embebidos_Hoja3 Member=C5
+Removed Member From Class: ClassName=Placa_Final_Embebidos_Hoja3 Member=C7
+Removed Member From Class: ClassName=Placa_Final_Embebidos_Hoja3 Member=P2
+Removed Member From Class: ClassName=Placa_Final_Embebidos_Hoja3 Member=Y1
+Change Component Footprint: Designator=J1 Old Footprint=FP-PJ-102A-MFG New Footprint=BORNERA2
+Change Component Footprint: Designator=J2 Old Footprint=JUMPER3 New Footprint=SIP3
+Change Component Footprint: Designator=U6 Old Footprint=N0014A New Footprint=N0020A
+Change Component Footprint: Designator=U5 Old Footprint=N0014A New Footprint=SOIC16N
+Change Component Comment : Designator=U5 Old Comment= New Comment=74HC595
+Change Component Comment : Designator=R22 Old Comment=1k New Comment=1.8K
+Change Component Comment : Designator=R25 Old Comment=1k New Comment=1.8K
+Change Component Comment : Designator=R29 Old Comment=1k New Comment=1.8K
+Change Component Comment : Designator=R23 Old Comment=2.2k New Comment=3.3K
+Change Component Comment : Designator=R26 Old Comment=2.2k New Comment=3.3K
+Change Component Comment : Designator=R30 Old Comment=2.2k New Comment=3.3K
+Change Component Comment : Designator=R37 Old Comment=4.7K New Comment=470
+Change Component Comment : Designator=C4 Old Comment=22pF New Comment=100nF
+Change Component Comment : Designator=R36 Old Comment=470 New Comment=4.7K
+Change Component Comment : Designator=J2 Old Comment=JUMPER New Comment=CON3
+Change Component Comment : Designator=J1 Old Comment=PJ-102A New Comment=BORNERA 2
+Change Component Comment : Designator=U6 Old Comment=SN74HC125N New Comment=CD74HCT245E
+Change Managed Component Library Link : Designator=U6 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=8AB56731-0E53-4CEB-A036-1FBD15BE624D New ItemGUID=B1C7C58D-2E75-439C-8BD5-7C2A93989701 Old RevisionGUID=2BE0721D-3C42-4B24-93AC-06E07C93FD87 New RevisionGUID=38713873-93C1-4B34-B5F8-7EA54DB93B3C
+Change Managed Component Library Link : Designator=J1 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=9F8CD4CC-E867-480F-A2C5-701D345F9A02 New ItemGUID= Old RevisionGUID=90135DAF-5943-4C86-80BC-B26FE7614BB7 New RevisionGUID=
+Change Managed Component Library Link : Designator=U5 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=8AB56731-0E53-4CEB-A036-1FBD15BE624D New ItemGUID= Old RevisionGUID=2BE0721D-3C42-4B24-93AC-06E07C93FD87 New RevisionGUID=
+Change component parameters: Designator = "J1" ("J1"); Footprint = "FP-PJ-102A-MFG"; UniqueID = "\TGEHCAZU" ("\TGEHCAZU")
+Change component parameters: Designator = "U5" ("U5"); Footprint = "N0014A"; UniqueID = "\NMWHSNGX" ("\NMWHSNGX")
+Change component parameters: Designator = "U6" ("U6"); Footprint = "N0014A"; UniqueID = "\UBTWXGJC" ("\UBTWXGJC")
+Change component parameters (AddParameter): Name = "Bits(#)"; Value = "8"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Code_JEDEC"; Value = "MS-001"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DatasheetVersion"; Value = "SCHS119A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "F @ Nom Voltage(Max)(Mhz)"; Value = "25"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Generic Part Number"; Value = "CD74HCT245"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ICC @ Nom Voltage(Max)(mA)"; Value = "0.08"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Input Type"; Value = "TTL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Operating Temperature Range(C)"; Value = "-55 to 125"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Output Drive (IOL/IOH)(Max)(mA)"; Value = "-4/4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Output Type"; Value = "CMOS"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "N0020A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rating"; Value = "Catalog"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Schmitt Trigger"; Value = "No"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Technology Family"; Value = "HCT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "tpd @ Nom Voltage(Max)(ns)"; Value = "33"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VCC(Max)(V)"; Value = "5.5"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VCC(Min)(V)"; Value = "4.5"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage(Nom)(V)"; Value = "5"; VariantName = "[No Variations]"
+Added Component: Designator=U3(SOIC16N)
+Added Pin To Net: NetName=5V Pin=C4-1
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=5V Pin=J1-2
+Added Pin To Net: NetName=GND Pin=J2-1
+Added Pin To Net: NetName=5V Pin=J2-3
+Added Pin To Net: NetName=GND Pin=P1-9
+Added Pin To Net: NetName=GND Pin=R36-1
+Added Pin To Net: NetName=LED_G Pin=U1-33
+Added Pin To Net: NetName=SWDCLK Pin=U1-34
+Added Pin To Net: NetName=SWDTRACE Pin=U1-36
+Added Pin To Net: NetName=SWDIO Pin=U1-37
+Added Pin To Net: NetName=NMI_B Pin=U1-38
+Added Pin To Net: NetName=EXTAL0 Pin=U1-50
+Added Pin To Net: NetName=XTAL0 Pin=U1-51
+Added Pin To Net: NetName=RESET_B Pin=U1-52
+Added Pin To Net: NetName=LED_B Pin=U1-67
+Added Pin To Net: NetName=LED_R Pin=U1-68
+Added Pin To Net: NetName=B Pin=U3-1
+Added Pin To Net: NetName=C Pin=U3-2
+Added Pin To Net: NetName=D Pin=U3-3
+Added Pin To Net: NetName=E Pin=U3-4
+Added Pin To Net: NetName=F Pin=U3-5
+Added Pin To Net: NetName=G Pin=U3-6
+Added Pin To Net: NetName=DP Pin=U3-7
+Added Pin To Net: NetName=GND Pin=U3-8
+Added Pin To Net: NetName=GND Pin=U3-13
+Added Pin To Net: NetName=A Pin=U3-15
+Added Pin To Net: NetName=SEL0 Pin=U5-1
+Added Pin To Net: NetName=GND Pin=U5-8
+Added Pin To Net: NetName=GND Pin=U5-13
+Added Pin To Net: NetName=SEL1 Pin=U5-15
+Added Pin To Net: NetName=GND Pin=U6-1
+Added Pin To Net: NetName=GND Pin=U6-10
+Added Pin To Net: NetName=GND Pin=U6-19
+Added Pin To Net: NetName=5V Pin=U6-20
+Add Net: Net with name "3V3" already exists
+Added Pin To Net: NetName=CLOCK_TM_IN Pin=P3-3
+Added Pin To Net: NetName=CLOCK_TM_IN Pin=R25-1
+Added Net: Name=CLOCK_TM_IN
+Added Pin To Net: NetName=CLOCK_TM Pin=R25-2
+Added Pin To Net: NetName=CLOCK_TM Pin=R26-1
+Added Pin To Net: NetName=CLOCK_TM Pin=U1-56
+Added Net: Name=CLOCK_TM
+Added Pin To Net: NetName=DATA_TM_IN Pin=P3-2
+Added Pin To Net: NetName=DATA_TM_IN Pin=R22-1
+Added Net: Name=DATA_TM_IN
+Added Pin To Net: NetName=DATA_TM Pin=R22-2
+Added Pin To Net: NetName=DATA_TM Pin=R23-1
+Added Pin To Net: NetName=DATA_TM Pin=U1-76
+Added Net: Name=DATA_TM
+Added Pin To Net: NetName=ENABLE_TM_IN Pin=P3-4
+Added Pin To Net: NetName=ENABLE_TM_IN Pin=R29-1
+Added Net: Name=ENABLE_TM_IN
+Added Pin To Net: NetName=ENABLE_TM Pin=R29-2
+Added Pin To Net: NetName=ENABLE_TM Pin=R30-1
+Added Pin To Net: NetName=ENABLE_TM Pin=U1-58
+Added Net: Name=ENABLE_TM
+Added Pin To Net: NetName=ENCODER_A Pin=ENC1-A
+Added Pin To Net: NetName=ENCODER_A Pin=R34-1
+Added Pin To Net: NetName=ENCODER_A Pin=U1-35
+Added Net: Name=ENCODER_A
+Added Pin To Net: NetName=ENCODER_B Pin=ENC1-B
+Added Pin To Net: NetName=ENCODER_B Pin=R35-2
+Added Pin To Net: NetName=ENCODER_B Pin=U1-69
+Added Net: Name=ENCODER_B
+Added Pin To Net: NetName=ENCODER_SW Pin=ENC1-1
+Added Pin To Net: NetName=ENCODER_SW Pin=R33-2
+Added Pin To Net: NetName=ENCODER_SW Pin=U1-73
+Added Net: Name=ENCODER_SW
+Added Pin To Net: NetName=MATRIX_DATA Pin=R36-2
+Added Pin To Net: NetName=MATRIX_DATA Pin=U1-93
+Added Pin To Net: NetName=MATRIX_DATA Pin=U6-18
+Added Net: Name=MATRIX_DATA
+Added Pin To Net: NetName=NetJ2_2 Pin=J2-2
+Added Pin To Net: NetName=NetJ2_2 Pin=R37-1
+Added Net: Name=NetJ2_2
+Added Pin To Net: NetName=NetR37_2 Pin=R37-2
+Added Pin To Net: NetName=NetR37_2 Pin=U6-2
+Added Net: Name=NetR37_2
+Added Pin To Net: NetName=NetU3_9 Pin=U3-9
+Added Pin To Net: NetName=NetU3_9 Pin=U5-14
+Added Net: Name=NetU3_9
+Added Pin To Net: NetName=SERIAL_CLOCK Pin=U1-91
+Added Pin To Net: NetName=SERIAL_CLOCK Pin=U3-11
+Added Pin To Net: NetName=SERIAL_CLOCK Pin=U5-11
+Added Net: Name=SERIAL_CLOCK
+Added Pin To Net: NetName=SERIAL_DATA Pin=U1-90
+Added Pin To Net: NetName=SERIAL_DATA Pin=U3-14
+Added Net: Name=SERIAL_DATA
+Added Pin To Net: NetName=SERIAL_LATCH Pin=U1-57
+Added Pin To Net: NetName=SERIAL_LATCH Pin=U3-12
+Added Pin To Net: NetName=SERIAL_LATCH Pin=U5-12
+Added Net: Name=SERIAL_LATCH
+Added Member To Class: ClassName=Placa_Final_Embebidos_Hoja3 Member=Component U1 MK64FN1M0VLL12
+Added Member To Class: ClassName=Placa_Final_Embebidos_Hoja3 Member=Component U3 74HC595

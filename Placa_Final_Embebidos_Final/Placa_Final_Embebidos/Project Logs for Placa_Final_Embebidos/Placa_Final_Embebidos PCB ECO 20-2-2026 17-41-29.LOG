@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=3V3 Pin=P1-1
+Added Component: Designator=J3(JUMPER2)
+Added Pin To Net: NetName=3V3 Pin=J3-1
+Added Pin To Net: NetName=NetJ3_2 Pin=J3-2
+Added Pin To Net: NetName=NetJ3_2 Pin=P1-1
+Added Net: Name=NetJ3_2
+Added Member To Class: ClassName=Placa_Final_Embebidos_Hoja2 Member=Component DS2
+Added Member To Class: ClassName=Placa_Final_Embebidos_Hoja2 Member=Component DS4
+Added Member To Class: ClassName=Placa_Final_Embebidos_Hoja3 Member=Component J3 JUMPER

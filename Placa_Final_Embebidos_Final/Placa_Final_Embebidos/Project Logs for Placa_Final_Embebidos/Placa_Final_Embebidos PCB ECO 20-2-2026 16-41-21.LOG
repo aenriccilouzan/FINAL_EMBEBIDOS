@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=LED_G Pin=U1-33
+Removed Pin From Net: NetName=ENCODER_A Pin=U1-35
+Removed Pin From Net: NetName=SERIAL_LATCH Pin=U1-57
+Removed Pin From Net: NetName=ENCODER_B Pin=U1-69
+Removed Pin From Net: NetName=DATA_TM Pin=U1-76
+Added Pin To Net: NetName=DATA_TM Pin=U1-57
+Added Pin To Net: NetName=LED_G Pin=U1-66
+Added Pin To Net: NetName=ENCODER_A Pin=U1-76
+Added Pin To Net: NetName=ENCODER_B Pin=U1-77
+Added Pin To Net: NetName=SERIAL_LATCH Pin=U1-87

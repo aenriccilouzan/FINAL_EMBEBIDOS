@@ -1,0 +1,28 @@
+Change Component Footprint: Designator=U1 Old Footprint=K64F_DevBoard_Headers New Footprint=K64F_DevBoard_Headers
+Added Pin To Net: NetName=+3V3 Pin=U1-8
+Added Pin To Net: NetName=+3V3 Pin=U1-22
+Added Pin To Net: NetName=+3V3 Pin=U1-40
+Added Pin To Net: NetName=+3V3 Pin=U1-48
+Added Pin To Net: NetName=+3V3 Pin=U1-61
+Added Pin To Net: NetName=+3V3 Pin=U1-75
+Added Pin To Net: NetName=+3V3 Pin=U1-89
+Added Net: Name=+3V3
+Added Pin To Net: NetName=GND Pin=U1-9
+Added Pin To Net: NetName=GND Pin=U1-14
+Added Pin To Net: NetName=GND Pin=U1-15
+Added Pin To Net: NetName=GND Pin=U1-16
+Added Pin To Net: NetName=GND Pin=U1-17
+Added Pin To Net: NetName=GND Pin=U1-18
+Added Pin To Net: NetName=GND Pin=U1-19
+Added Pin To Net: NetName=GND Pin=U1-20
+Added Pin To Net: NetName=GND Pin=U1-21
+Added Pin To Net: NetName=GND Pin=U1-24
+Added Pin To Net: NetName=GND Pin=U1-25
+Added Pin To Net: NetName=GND Pin=U1-41
+Added Pin To Net: NetName=GND Pin=U1-49
+Added Pin To Net: NetName=GND Pin=U1-60
+Added Pin To Net: NetName=GND Pin=U1-74
+Added Pin To Net: NetName=GND Pin=U1-88
+Added Net: Name=GND
+Added Rule: Name=Schematic Supply Nets
+Added Rule: Name=Schematic Supply Nets_1

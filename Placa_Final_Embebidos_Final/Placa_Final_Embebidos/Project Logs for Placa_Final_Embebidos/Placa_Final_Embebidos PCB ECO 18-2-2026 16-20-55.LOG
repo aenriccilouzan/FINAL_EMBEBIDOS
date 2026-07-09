@@ -1,0 +1,12 @@
+Added Component: Designator=C?(CAP200)
+Added Component: Designator=C?(CAP200)
+Added Component: Designator=Y?(CRISTAL PERFIL)
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=NetC?_2 Pin=C?-2
+Added Pin To Net: NetName=NetC?_2 Pin=Y?-1
+Added Net: Name=NetC?_2
+Add Net: Net with name "NetC?_2" already exists
+Added Member To Class: ClassName=Placa_Final_Embebidos Member=Component C? CAP
+Added Member To Class: ClassName=Placa_Final_Embebidos Member=Component C? CAP
+Added Member To Class: ClassName=Placa_Final_Embebidos Member=Component Y? 16 MHz

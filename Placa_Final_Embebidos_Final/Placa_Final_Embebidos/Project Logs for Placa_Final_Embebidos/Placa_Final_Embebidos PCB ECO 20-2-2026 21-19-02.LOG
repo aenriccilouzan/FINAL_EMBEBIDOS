@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=SERIAL_LATCH Pin=U1-87
+Added Pin To Net: NetName=SERIAL_LATCH Pin=U1-92

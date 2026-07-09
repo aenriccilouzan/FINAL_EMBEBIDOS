@@ -1,0 +1,629 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD24\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">1/7/2026</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">18:23:13</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc" class="file"><acronym title="G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc">G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">95</td></tr>
+</table>
+</td>
+</table><a name="IDVBJS1S3UNZC0FXACV1BFEXPNDGAPCH4AINKVBLCEOFQE0C5ET2HK"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDE0ZXHPJTP5OBKJ3PLBQ3W15KSJK5NGKUQ2BMWNE4RZYCPONXSRR">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOWTMWZJM25TZJEMOCZ3QO10QGDKI2OY2ZWC3YOJ3T2RLPP3RJMDL">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEPTY2PSCXKMKMZLGYTTOPSDOVBIO2YBNIZ3EE3DW50J44EWQG5MM">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZDNZSKZZBEGXJPT2BNI3LK5RRFTBTECKSYSMUBDVTCQFZHAK0VVF">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYNDYXJVAUUT3C5RDXTORPQRKVKUEDMUSVH13ZEB50UIPO130VG0M">Width Constraint (Min=0.6mm) (Max=1mm) (Preferred=0.8mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPUUSZVHFALTVD21SAAIID0DJYIYYGTPFYG5PDAGGHJ50K54B150G">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFKE0MO0O511JJKMUBTAR35HAEIIOHQUQDFG52MLGXJUEGWEDUBLL">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5M2DMOAMYKAGNGQKUYSACUMXUBXA2BBTFTWPSRFVBKAG1OBMM4FC">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5UUR23PEN5JIJJ2PSOQWWSGCWIYOYTXY2IWGQVNKN5R3OZIM00UH">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOQGTPKTYIHP0MSMGPYBVBI4AKEO4IMRQFZO5JIGRNQRFSJPMZJKJ">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDZJ5I23BEUGKJ0EKP5DZON0Q5HLA1Z5MIZ0XQZHLFTBXKFIESFB">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">25</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDEMLVF1UVKZIOHLIJHE0IGZCL5LJWCD144EABBJM0QELJRRYCPMOP">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">67</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGFZ0W1W3IQPTOITJWA3ZZ3QDKICMSLEJGBAQ4RBVYGU2TBPP5QTE">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1DAU4CVQEPHYMUP5LJ2QOGJHXMGOXBTV1QA5YJJJK3YODUX5OJHN">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">95</td>
+</tr>
+</table><br><a name="ID5M2DMOAMYKAGNGQKUYSACUMXUBXA2BBTFTWPSRFVBKAG1OBMM4FC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3578.312mil|Location2.X=3760.664mil|Location1.Y=623.824mil|Location2.Y=806.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3578.312mil|Location2.X=3760.664mil|Location1.Y=623.824mil|Location2.Y=806.176mil|Absolute=True">Hole Size Constraint: (4.6mm &gt; 2.54mm) Pad ENC1-3(93.205mm,18.161mm) on Multi-Layer Actual Slot Hole Height = 4.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4019.257mil|Location2.X=4201.609mil|Location1.Y=623.824mil|Location2.Y=806.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4019.257mil|Location2.X=4201.609mil|Location1.Y=623.824mil|Location2.Y=806.176mil|Absolute=True">Hole Size Constraint: (4.6mm &gt; 2.54mm) Pad ENC1-4(104.405mm,18.161mm) on Multi-Layer Actual Slot Hole Height = 4.6mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDOQGTPKTYIHP0MSMGPYBVBI4AKEO4IMRQFZO5JIGRNQRFSJPMZJKJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5609.375mil|Location2.X=5620.625mil|Location1.Y=3554.798mil|Location2.Y=3566.048mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5609.375mil|Location2.X=5620.625mil|Location1.Y=3554.798mil|Location2.Y=3566.048mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.2533mm (9.9724mil) &lt; 0.254mm (10mil)) Between Pad DS1-7(142.621mm,91.413mm) on Multi-Layer And Pad Free-2(142.621mm,89.381mm) on Multi-Layer [Top Solder] Mask Sliver [0.253mm] / [Bottom Solder] Mask Sliver [0.253mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDDZJ5I23BEUGKJ0EKP5DZON0Q5HLA1Z5MIZ0XQZHLFTBXKFIESFB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1769.375mil|Location2.X=1780.625mil|Location1.Y=3128.602mil|Location2.Y=3139.852mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1769.375mil|Location2.X=1780.625mil|Location1.Y=3128.602mil|Location2.Y=3139.852mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.216mm &lt; 0.254mm) Between Pad C4-2(45.085mm,80.505mm) on Multi-Layer And Text "R37" (41.402mm,77.851mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.216mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3614.115mil|Location2.X=3621.782mil|Location1.Y=751.157mil|Location2.Y=758.824mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3614.115mil|Location2.X=3621.782mil|Location1.Y=751.157mil|Location2.Y=758.824mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad ENC1-3(93.205mm,18.161mm) on Multi-Layer And Text "R34" (87.833mm,18.415mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3763.233mil|Location2.X=3774.483mil|Location1.Y=390.571mil|Location2.Y=401.821mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3763.233mil|Location2.X=3774.483mil|Location1.Y=390.571mil|Location2.Y=401.821mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.11mm &lt; 0.254mm) Between Pad ENC1-A(96.305mm,10.661mm) on Multi-Layer And Text "R35" (91.542mm,8.407mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.11mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4932.167mil|Location2.X=4939.833mil|Location1.Y=1365.147mil|Location2.Y=1372.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4932.167mil|Location2.X=4939.833mil|Location1.Y=1365.147mil|Location2.Y=1372.814mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad Free-2(125.984mm,34.925mm) on Multi-Layer And Text "U3" (125.374mm,33.249mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=815.125mil|Location2.X=822.791mil|Location1.Y=1550.572mil|Location2.Y=1558.238mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=815.125mil|Location2.X=822.791mil|Location1.Y=1550.572mil|Location2.Y=1558.238mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad Free-2(21.209mm,40.132mm) on Multi-Layer And Text "R21" (17.501mm,37.998mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1741.671mil|Location2.X=1749.338mil|Location1.Y=3509.147mil|Location2.Y=3516.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1741.671mil|Location2.X=1749.338mil|Location1.Y=3509.147mil|Location2.Y=3516.814mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad J2-3(45.085mm,89.268mm) on Multi-Layer And Text "C4" (43.967mm,87.706mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5480.071mil|Location2.X=5491.321mil|Location1.Y=2728.296mil|Location2.Y=2739.546mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5480.071mil|Location2.X=5491.321mil|Location1.Y=2728.296mil|Location2.Y=2739.546mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.089mm &lt; 0.254mm) Between Pad Q10-1(140.081mm,69.121mm) on Multi-Layer And Text "R18" (135.357mm,68.172mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.089mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5148.608mil|Location2.X=5156.274mil|Location1.Y=2290.084mil|Location2.Y=2297.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5148.608mil|Location2.X=5156.274mil|Location1.Y=2290.084mil|Location2.Y=2297.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad Q12-1(131.572mm,57.691mm) on Multi-Layer And Text "R20" (127.229mm,56.742mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4830.121mil|Location2.X=4837.788mil|Location1.Y=2290.084mil|Location2.Y=2297.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4830.121mil|Location2.X=4837.788mil|Location1.Y=2290.084mil|Location2.Y=2297.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad Q5-1(123.571mm,57.691mm) on Multi-Layer And Text "R13" (119.228mm,56.742mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4510.121mil|Location2.X=4517.788mil|Location1.Y=2239.907mil|Location2.Y=2247.573mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4510.121mil|Location2.X=4517.788mil|Location1.Y=2239.907mil|Location2.Y=2247.573mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad Q6-1(115.443mm,57.691mm) on Multi-Layer And Text "R14" (111.1mm,56.742mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4085.144mil|Location2.X=4092.811mil|Location1.Y=2641.077mil|Location2.Y=2648.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4085.144mil|Location2.X=4092.811mil|Location1.Y=2641.077mil|Location2.Y=2648.743mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad Q8-3(104.521mm,67.223mm) on Multi-Layer And Text "R19" (102.083mm,66.013mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4594.134mil|Location2.X=4601.801mil|Location1.Y=2416.084mil|Location2.Y=2423.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4594.134mil|Location2.X=4601.801mil|Location1.Y=2416.084mil|Location2.Y=2423.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R17-2(116.713mm,62.23mm) on Multi-Layer And Text "Q6" (114.249mm,59.942mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=740.768mil|Location2.X=748.434mil|Location1.Y=1427.147mil|Location2.Y=1434.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=740.768mil|Location2.X=748.434mil|Location1.Y=1427.147mil|Location2.Y=1434.814mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R21-1(18.148mm,36.068mm) on Multi-Layer And Text "SW1" (18.415mm,34.823mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1097.154mil|Location2.X=1104.82mil|Location1.Y=1405.15mil|Location2.Y=1412.817mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1097.154mil|Location2.X=1104.82mil|Location1.Y=1405.15mil|Location2.Y=1412.817mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R21-2(28.308mm,36.068mm) on Multi-Layer And Text "C6" (26.949mm,34.519mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1085.167mil|Location2.X=1092.833mil|Location1.Y=658.745mil|Location2.Y=666.411mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1085.167mil|Location2.X=1092.833mil|Location1.Y=658.745mil|Location2.Y=666.411mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R22-1(28.308mm,17.018mm) on Multi-Layer And Text "R25" (27.661mm,16.281mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2111.144mil|Location2.X=2118.811mil|Location1.Y=316.753mil|Location2.Y=324.42mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2111.144mil|Location2.X=2118.811mil|Location1.Y=316.753mil|Location2.Y=324.42mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R24-1(54.089mm,8.763mm) on Multi-Layer And Text "D1" (51.943mm,7.722mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1085.167mil|Location2.X=1092.833mil|Location1.Y=553.745mil|Location2.Y=561.411mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1085.167mil|Location2.X=1092.833mil|Location1.Y=553.745mil|Location2.Y=561.411mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R25-1(28.308mm,14.351mm) on Multi-Layer And Text "R29" (27.661mm,13.614mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1085.167mil|Location2.X=1092.833mil|Location1.Y=238.744mil|Location2.Y=246.411mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1085.167mil|Location2.X=1092.833mil|Location1.Y=238.744mil|Location2.Y=246.411mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R26-2(28.308mm,6.35mm) on Multi-Layer And Text "R23" (27.661mm,5.461mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2337.108mil|Location2.X=2344.775mil|Location1.Y=312.127mil|Location2.Y=319.794mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2337.108mil|Location2.X=2344.775mil|Location1.Y=312.127mil|Location2.Y=319.794mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R27-1(59.804mm,8.763mm) on Multi-Layer And Text "D2" (57.658mm,7.747mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1085.167mil|Location2.X=1092.833mil|Location1.Y=448.745mil|Location2.Y=456.411mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1085.167mil|Location2.X=1092.833mil|Location1.Y=448.745mil|Location2.Y=456.411mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R29-1(28.308mm,11.684mm) on Multi-Layer And Text "R30" (27.661mm,11.049mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.147mil|Location2.X=2558.814mil|Location1.Y=351.151mil|Location2.Y=358.817mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.147mil|Location2.X=2558.814mil|Location1.Y=351.151mil|Location2.Y=358.817mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R31-1(65.519mm,8.763mm) on Multi-Layer And Text "D3" (63.373mm,7.747mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3490.133mil|Location2.X=3497.8mil|Location1.Y=775.171mil|Location2.Y=782.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3490.133mil|Location2.X=3497.8mil|Location1.Y=775.171mil|Location2.Y=782.838mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R33-1(88.76mm,18.923mm) on Multi-Layer And Text "R34" (87.833mm,18.415mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1909.154mil|Location2.X=1916.82mil|Location1.Y=3509.697mil|Location2.Y=3517.364mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1909.154mil|Location2.X=1916.82mil|Location1.Y=3509.697mil|Location2.Y=3517.364mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R36-1(48.514mm,90.03mm) on Multi-Layer And Text "U6" (47.574mm,88.671mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4854.154mil|Location2.X=4861.82mil|Location1.Y=2406.088mil|Location2.Y=2413.754mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4854.154mil|Location2.X=4861.82mil|Location1.Y=2406.088mil|Location2.Y=2413.754mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R6-1(123.571mm,62.076mm) on Multi-Layer And Text "Q5" (122.377mm,59.942mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=591.664mil|Location2.X=605.183mil|Location1.Y=2316.018mil|Location2.Y=2327.268mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=591.664mil|Location2.X=605.183mil|Location1.Y=2316.018mil|Location2.Y=2327.268mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.104mm &lt; 0.254mm) Between Pad U4-2(15.481mm,59.817mm) on Multi-Layer And Text "C2" (14.351mm,57.277mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.104mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDEMLVF1UVKZIOHLIJHE0IGZCL5LJWCD144EABBJM0QELJRRYCPMOP"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4074.691mil|Location2.X=4085.941mil|Location1.Y=2655.027mil|Location2.Y=2666.277mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4074.691mil|Location2.X=4085.941mil|Location1.Y=2655.027mil|Location2.Y=2666.277mil|Absolute=True">Silk To Silk Clearance Constraint: (0.119mm &lt; 0.254mm) Between Arc (104.521mm,69.823mm) on Top Overlay And Text "R19" (102.083mm,66.013mm) on Top Overlay Silk Text to Silk Clearance [0.119mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4155.121mil|Location2.X=4162.788mil|Location1.Y=2655.084mil|Location2.Y=2662.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4155.121mil|Location2.X=4162.788mil|Location1.Y=2655.084mil|Location2.Y=2662.751mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (104.521mm,69.823mm) on Top Overlay And Text "R19" (102.083mm,66.013mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4501.674mil|Location2.X=4512.924mil|Location1.Y=2245.078mil|Location2.Y=2256.328mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4501.674mil|Location2.X=4512.924mil|Location1.Y=2245.078mil|Location2.Y=2256.328mil|Absolute=True">Silk To Silk Clearance Constraint: (0.084mm &lt; 0.254mm) Between Arc (115.443mm,55.091mm) on Top Overlay And Text "R14" (111.1mm,56.742mm) on Top Overlay Silk Text to Silk Clearance [0.084mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4803.797mil|Location2.X=4811.463mil|Location1.Y=2236.435mil|Location2.Y=2244.101mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4803.797mil|Location2.X=4811.463mil|Location1.Y=2236.435mil|Location2.Y=2244.101mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (123.571mm,55.091mm) on Top Overlay And Text "R13" (119.228mm,56.742mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5125.128mil|Location2.X=5132.794mil|Location1.Y=2240.101mil|Location2.Y=2247.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5125.128mil|Location2.X=5132.794mil|Location1.Y=2240.101mil|Location2.Y=2247.767mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (131.572mm,55.091mm) on Top Overlay And Text "R20" (127.229mm,56.742mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5473.109mil|Location2.X=5480.776mil|Location1.Y=2702.106mil|Location2.Y=2709.772mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5473.109mil|Location2.X=5480.776mil|Location1.Y=2702.106mil|Location2.Y=2709.772mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (140.081mm,66.521mm) on Top Overlay And Text "R18" (135.357mm,68.172mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=564.962mil|Location2.X=576.212mil|Location1.Y=2044.757mil|Location2.Y=2057.315mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=564.962mil|Location2.X=576.212mil|Location1.Y=2044.757mil|Location2.Y=2057.315mil|Absolute=True">Silk To Silk Clearance Constraint: (0.018mm &lt; 0.254mm) Between Arc (17.021mm,53.594mm) on Top Overlay And Text "C3" (11.836mm,50.775mm) on Top Overlay Silk Text to Silk Clearance [0.018mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1748.383mil|Location2.X=1756.05mil|Location1.Y=3121.147mil|Location2.Y=3128.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1748.383mil|Location2.X=1756.05mil|Location1.Y=3121.147mil|Location2.Y=3128.814mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (45.085mm,80.505mm) on Top Overlay And Text "R37" (41.402mm,77.851mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3867.793mil|Location2.X=3875.46mil|Location1.Y=3278.813mil|Location2.Y=3286.479mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3867.793mil|Location2.X=3875.46mil|Location1.Y=3278.813mil|Location2.Y=3286.479mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (99.187mm,85.571mm) on Top Overlay And Text "Q2" (96.012mm,82.575mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=903.863mil|Location2.X=915.113mil|Location1.Y=2196.013mil|Location2.Y=2207.263mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=903.863mil|Location2.X=915.113mil|Location1.Y=2196.013mil|Location2.Y=2207.263mil|Absolute=True">Silk To Silk Clearance Constraint: (0.137mm &lt; 0.254mm) Between Text "1" (23.101mm,56.515mm) on Top Overlay And Track (22.339mm,55.753mm)(27.419mm,55.753mm) on Top Overlay Silk Text to Silk Clearance [0.137mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1003.863mil|Location2.X=1015.113mil|Location1.Y=1684.407mil|Location2.Y=1695.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1003.863mil|Location2.X=1015.113mil|Location1.Y=1684.407mil|Location2.Y=1695.657mil|Absolute=True">Silk To Silk Clearance Constraint: (0.052mm &lt; 0.254mm) Between Text "10" (25.641mm,42.799mm) on Top Overlay And Track (22.339mm,43.053mm)(27.419mm,43.053mm) on Top Overlay Silk Text to Silk Clearance [0.052mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1003.863mil|Location2.X=1015.113mil|Location1.Y=2197.682mil|Location2.Y=2208.932mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1003.863mil|Location2.X=1015.113mil|Location1.Y=2197.682mil|Location2.Y=2208.932mil|Absolute=True">Silk To Silk Clearance Constraint: (0.222mm &lt; 0.254mm) Between Text "2" (25.641mm,57.023mm) on Top Overlay And Track (22.339mm,55.753mm)(27.419mm,55.753mm) on Top Overlay Silk Text to Silk Clearance [0.222mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=912.194mil|Location2.X=923.444mil|Location1.Y=1684.407mil|Location2.Y=1695.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=912.194mil|Location2.X=923.444mil|Location1.Y=1684.407mil|Location2.Y=1695.657mil|Absolute=True">Silk To Silk Clearance Constraint: (0.052mm &lt; 0.254mm) Between Text "9" (23.101mm,42.799mm) on Top Overlay And Track (22.339mm,43.053mm)(27.419mm,43.053mm) on Top Overlay Silk Text to Silk Clearance [0.052mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=569.372mil|Location2.X=580.622mil|Location1.Y=2242.741mil|Location2.Y=2253.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=569.372mil|Location2.X=580.622mil|Location1.Y=2242.741mil|Location2.Y=2253.991mil|Absolute=True">Silk To Silk Clearance Constraint: (0.083mm &lt; 0.254mm) Between Text "C2" (14.351mm,57.277mm) on Top Overlay And Track (10.281mm,56.967mm)(20.681mm,56.967mm) on Top Overlay Silk Text to Silk Clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=561.167mil|Location2.X=568.833mil|Location1.Y=2261.164mil|Location2.Y=2268.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=561.167mil|Location2.X=568.833mil|Location1.Y=2261.164mil|Location2.Y=2268.83mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "C2" (14.351mm,57.277mm) on Top Overlay And Track (10.281mm,57.467mm)(20.681mm,57.467mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1727.167mil|Location2.X=1734.833mil|Location1.Y=3499.151mil|Location2.Y=3506.817mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1727.167mil|Location2.X=1734.833mil|Location1.Y=3499.151mil|Location2.Y=3506.817mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "C4" (43.967mm,87.706mm) on Top Overlay And Track (43.815mm,87.998mm)(43.815mm,95.618mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1727.167mil|Location2.X=1734.833mil|Location1.Y=3460.655mil|Location2.Y=3468.322mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1727.167mil|Location2.X=1734.833mil|Location1.Y=3460.655mil|Location2.Y=3468.322mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "C4" (43.967mm,87.706mm) on Top Overlay And Track (43.815mm,87.998mm)(46.355mm,87.998mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1817.138mil|Location2.X=1824.804mil|Location1.Y=3509.147mil|Location2.Y=3516.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1817.138mil|Location2.X=1824.804mil|Location1.Y=3509.147mil|Location2.Y=3516.814mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "C4" (43.967mm,87.706mm) on Top Overlay And Track (46.355mm,87.998mm)(46.355mm,95.618mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1067.164mil|Location2.X=1074.83mil|Location1.Y=1415.147mil|Location2.Y=1422.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1067.164mil|Location2.X=1074.83mil|Location1.Y=1415.147mil|Location2.Y=1422.814mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "C6" (26.949mm,34.519mm) on Top Overlay And Track (26.276mm,36.068mm)(27.038mm,36.068mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=923.244mil|Location2.X=934.494mil|Location1.Y=2338.244mil|Location2.Y=2349.494mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=923.244mil|Location2.X=934.494mil|Location1.Y=2338.244mil|Location2.Y=2349.494mil|Absolute=True">Silk To Silk Clearance Constraint: (0.24mm &lt; 0.254mm) Between Text "P1" (22.504mm,57.988mm) on Top Overlay And Track (23.749mm,59.69mm)(23.749mm,64.77mm) on Top Overlay Silk Text to Silk Clearance [0.24mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=952.144mil|Location2.X=959.811mil|Location1.Y=2339.147mil|Location2.Y=2346.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=952.144mil|Location2.X=959.811mil|Location1.Y=2339.147mil|Location2.Y=2346.814mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "P1" (22.504mm,57.988mm) on Top Overlay And Track (23.749mm,59.69mm)(26.289mm,59.69mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4494.246mil|Location2.X=4501.913mil|Location1.Y=2406.167mil|Location2.Y=2413.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4494.246mil|Location2.X=4501.913mil|Location1.Y=2406.167mil|Location2.Y=2413.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "Q6" (114.249mm,59.942mm) on Top Overlay And Track (108.585mm,61.214mm)(114.681mm,61.214mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4511.167mil|Location2.X=4518.833mil|Location1.Y=2416.084mil|Location2.Y=2423.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4511.167mil|Location2.X=4518.833mil|Location1.Y=2416.084mil|Location2.Y=2423.751mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "Q6" (114.249mm,59.942mm) on Top Overlay And Track (114.681mm,61.214mm)(114.681mm,63.246mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4450.167mil|Location2.X=4457.833mil|Location1.Y=3570.084mil|Location2.Y=3577.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4450.167mil|Location2.X=4457.833mil|Location1.Y=3570.084mil|Location2.Y=3577.751mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R10" (109.449mm,89.254mm) on Top Overlay And Text "R9" (113.132mm,89.254mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4986.167mil|Location2.X=4993.833mil|Location1.Y=2745.094mil|Location2.Y=2752.761mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4986.167mil|Location2.X=4993.833mil|Location1.Y=2745.094mil|Location2.Y=2752.761mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R12" (125.989mm,68.299mm) on Top Overlay And Track (126.746mm,64.108mm)(126.746mm,70.204mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4984.551mil|Location2.X=4995.801mil|Location1.Y=2751.339mil|Location2.Y=2762.589mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4984.551mil|Location2.X=4995.801mil|Location1.Y=2751.339mil|Location2.Y=2762.589mil|Absolute=True">Silk To Silk Clearance Constraint: (0.154mm &lt; 0.254mm) Between Text "R12" (125.989mm,68.299mm) on Top Overlay And Track (126.746mm,70.204mm)(128.778mm,70.204mm) on Top Overlay Silk Text to Silk Clearance [0.154mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5024.451mil|Location2.X=5035.701mil|Location1.Y=2751.339mil|Location2.Y=2762.589mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5024.451mil|Location2.X=5035.701mil|Location1.Y=2751.339mil|Location2.Y=2762.589mil|Absolute=True">Silk To Silk Clearance Constraint: (0.154mm &lt; 0.254mm) Between Text "R12" (125.989mm,68.299mm) on Top Overlay And Track (127.762mm,70.204mm)(127.762mm,70.966mm) on Top Overlay Silk Text to Silk Clearance [0.154mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5066.317mil|Location2.X=5073.983mil|Location1.Y=2685.113mil|Location2.Y=2692.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5066.317mil|Location2.X=5073.983mil|Location1.Y=2685.113mil|Location2.Y=2692.78mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R12" (125.989mm,68.299mm) on Top Overlay And Track (128.778mm,64.108mm)(128.778mm,70.204mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4810.128mil|Location2.X=4817.794mil|Location1.Y=2230.104mil|Location2.Y=2237.77mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4810.128mil|Location2.X=4817.794mil|Location1.Y=2230.104mil|Location2.Y=2237.77mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R13" (119.228mm,56.742mm) on Top Overlay And Track (122.236mm,53.157mm)(122.236mm,57.025mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4486.816mil|Location2.X=4498.066mil|Location1.Y=2248.347mil|Location2.Y=2259.597mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4486.816mil|Location2.X=4498.066mil|Location1.Y=2248.347mil|Location2.Y=2259.597mil|Absolute=True">Silk To Silk Clearance Constraint: (0.252mm &lt; 0.254mm) Between Text "R14" (111.1mm,56.742mm) on Top Overlay And Track (114.108mm,53.157mm)(114.108mm,57.025mm) on Top Overlay Silk Text to Silk Clearance [0.252mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4158.852mil|Location2.X=4170.19mil|Location1.Y=2586.834mil|Location2.Y=2598.084mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4158.852mil|Location2.X=4170.19mil|Location1.Y=2586.834mil|Location2.Y=2598.084mil|Absolute=True">Silk To Silk Clearance Constraint: (0.178mm &lt; 0.254mm) Between Text "R17" (105.918mm,64.16mm) on Top Overlay And Text "R19" (102.083mm,66.013mm) on Top Overlay Silk Text to Silk Clearance [0.178mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5465.121mil|Location2.X=5472.788mil|Location1.Y=2680.104mil|Location2.Y=2687.77mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5465.121mil|Location2.X=5472.788mil|Location1.Y=2680.104mil|Location2.Y=2687.77mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R18" (135.357mm,68.172mm) on Top Overlay And Track (138.746mm,64.587mm)(138.746mm,68.455mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5125.128mil|Location2.X=5132.794mil|Location1.Y=2240.101mil|Location2.Y=2247.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5125.128mil|Location2.X=5132.794mil|Location1.Y=2240.101mil|Location2.Y=2247.767mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R20" (127.229mm,56.742mm) on Top Overlay And Track (130.237mm,53.157mm)(130.237mm,57.025mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1180.147mil|Location2.X=1187.814mil|Location1.Y=246.167mil|Location2.Y=253.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1180.147mil|Location2.X=1187.814mil|Location1.Y=246.167mil|Location2.Y=253.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R23" (27.661mm,5.461mm) on Top Overlay And Track (29.578mm,6.35mm)(30.34mm,6.35mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.134mil|Location2.X=1192.801mil|Location1.Y=211.167mil|Location2.Y=218.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.134mil|Location2.X=1192.801mil|Location1.Y=211.167mil|Location2.Y=218.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R23" (27.661mm,5.461mm) on Top Overlay And Track (30.34mm,5.334mm)(30.34mm,7.366mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.134mil|Location2.X=1192.801mil|Location1.Y=211.167mil|Location2.Y=218.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.134mil|Location2.X=1192.801mil|Location1.Y=211.167mil|Location2.Y=218.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R23" (27.661mm,5.461mm) on Top Overlay And Track (30.34mm,5.334mm)(36.436mm,5.334mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1213.333mil|Location2.X=1224.583mil|Location1.Y=277.397mil|Location2.Y=288.647mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1213.333mil|Location2.X=1224.583mil|Location1.Y=277.397mil|Location2.Y=288.647mil|Absolute=True">Silk To Silk Clearance Constraint: (0.154mm &lt; 0.254mm) Between Text "R23" (27.661mm,5.461mm) on Top Overlay And Track (30.34mm,7.366mm)(36.436mm,7.366mm) on Top Overlay Silk Text to Silk Clearance [0.154mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1174.147mil|Location2.X=1181.814mil|Location1.Y=666.167mil|Location2.Y=673.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1174.147mil|Location2.X=1181.814mil|Location1.Y=666.167mil|Location2.Y=673.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R25" (27.661mm,16.281mm) on Top Overlay And Track (29.578mm,17.018mm)(30.34mm,17.018mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.134mil|Location2.X=1192.801mil|Location1.Y=637.167mil|Location2.Y=644.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.134mil|Location2.X=1192.801mil|Location1.Y=637.167mil|Location2.Y=644.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R25" (27.661mm,16.281mm) on Top Overlay And Track (30.34mm,16.002mm)(30.34mm,18.034mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1233.326mil|Location2.X=1244.576mil|Location1.Y=629.343mil|Location2.Y=640.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1233.326mil|Location2.X=1244.576mil|Location1.Y=629.343mil|Location2.Y=640.593mil|Absolute=True">Silk To Silk Clearance Constraint: (0.052mm &lt; 0.254mm) Between Text "R25" (27.661mm,16.281mm) on Top Overlay And Track (30.34mm,16.002mm)(36.436mm,16.002mm) on Top Overlay Silk Text to Silk Clearance [0.052mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1243.323mil|Location2.X=1254.573mil|Location1.Y=700.397mil|Location2.Y=711.647mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1243.323mil|Location2.X=1254.573mil|Location1.Y=700.397mil|Location2.Y=711.647mil|Absolute=True">Silk To Silk Clearance Constraint: (0.002mm &lt; 0.254mm) Between Text "R25" (27.661mm,16.281mm) on Top Overlay And Track (30.34mm,18.034mm)(36.436mm,18.034mm) on Top Overlay Silk Text to Silk Clearance [0.002mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1353.158mil|Location2.X=1360.825mil|Location1.Y=176.167mil|Location2.Y=183.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1353.158mil|Location2.X=1360.825mil|Location1.Y=176.167mil|Location2.Y=183.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R26" (33.007mm,8.508mm) on Top Overlay And Track (30.34mm,4.572mm)(36.436mm,4.572mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1330.668mil|Location2.X=1338.334mil|Location1.Y=206.167mil|Location2.Y=213.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1330.668mil|Location2.X=1338.334mil|Location1.Y=206.167mil|Location2.Y=213.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R26" (33.007mm,8.508mm) on Top Overlay And Track (30.34mm,5.334mm)(36.436mm,5.334mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1345.648mil|Location2.X=1353.315mil|Location1.Y=291.154mil|Location2.Y=298.82mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1345.648mil|Location2.X=1353.315mil|Location1.Y=291.154mil|Location2.Y=298.82mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R26" (33.007mm,8.508mm) on Top Overlay And Track (30.34mm,7.366mm)(36.436mm,7.366mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1355.645mil|Location2.X=1363.312mil|Location1.Y=316.167mil|Location2.Y=323.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1355.645mil|Location2.X=1363.312mil|Location1.Y=316.167mil|Location2.Y=323.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R26" (33.007mm,8.508mm) on Top Overlay And Track (30.34mm,8.128mm)(36.436mm,8.128mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1159.401mil|Location2.X=1170.651mil|Location1.Y=2152.402mil|Location2.Y=2163.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1159.401mil|Location2.X=1170.651mil|Location1.Y=2152.402mil|Location2.Y=2163.652mil|Absolute=True">Silk To Silk Clearance Constraint: (0.154mm &lt; 0.254mm) Between Text "R28" (29.592mm,53.086mm) on Top Overlay And Track (28.689mm,54.991mm)(30.721mm,54.991mm) on Top Overlay Silk Text to Silk Clearance [0.154mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1163.863mil|Location2.X=1175.113mil|Location1.Y=2152.402mil|Location2.Y=2163.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1163.863mil|Location2.X=1175.113mil|Location1.Y=2152.402mil|Location2.Y=2163.652mil|Absolute=True">Silk To Silk Clearance Constraint: (0.154mm &lt; 0.254mm) Between Text "R28" (29.592mm,53.086mm) on Top Overlay And Track (29.705mm,54.991mm)(29.705mm,55.753mm) on Top Overlay Silk Text to Silk Clearance [0.154mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1201.18mil|Location2.X=1208.846mil|Location1.Y=2136.16mil|Location2.Y=2143.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1201.18mil|Location2.X=1208.846mil|Location1.Y=2136.16mil|Location2.Y=2143.827mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R28" (29.592mm,53.086mm) on Top Overlay And Track (30.721mm,48.895mm)(30.721mm,54.991mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1174.147mil|Location2.X=1181.814mil|Location1.Y=561.167mil|Location2.Y=568.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1174.147mil|Location2.X=1181.814mil|Location1.Y=561.167mil|Location2.Y=568.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R29" (27.661mm,13.614mm) on Top Overlay And Track (29.578mm,14.351mm)(30.34mm,14.351mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.134mil|Location2.X=1192.801mil|Location1.Y=532.167mil|Location2.Y=539.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.134mil|Location2.X=1192.801mil|Location1.Y=532.167mil|Location2.Y=539.833mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R29" (27.661mm,13.614mm) on Top Overlay And Track (30.34mm,13.335mm)(30.34mm,15.367mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1213.333mil|Location2.X=1224.583mil|Location1.Y=524.343mil|Location2.Y=535.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1213.333mil|Location2.X=1224.583mil|Location1.Y=524.343mil|Location2.Y=535.593mil|Absolute=True">Silk To Silk Clearance Constraint: (0.052mm &lt; 0.254mm) Between Text "R29" (27.661mm,13.614mm) on Top Overlay And Track (30.34mm,13.335mm)(36.436mm,13.335mm) on Top Overlay Silk Text to Silk Clearance [0.052mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1233.326mil|Location2.X=1244.576mil|Location1.Y=595.397mil|Location2.Y=606.647mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1233.326mil|Location2.X=1244.576mil|Location1.Y=595.397mil|Location2.Y=606.647mil|Absolute=True">Silk To Silk Clearance Constraint: (0.002mm &lt; 0.254mm) Between Text "R29" (27.661mm,13.614mm) on Top Overlay And Track (30.34mm,15.367mm)(36.436mm,15.367mm) on Top Overlay Silk Text to Silk Clearance [0.002mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1175.138mil|Location2.X=1182.804mil|Location1.Y=461.157mil|Location2.Y=468.824mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1175.138mil|Location2.X=1182.804mil|Location1.Y=461.157mil|Location2.Y=468.824mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R30" (27.661mm,11.049mm) on Top Overlay And Track (29.578mm,11.684mm)(30.34mm,11.684mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.134mil|Location2.X=1192.801mil|Location1.Y=481.151mil|Location2.Y=488.817mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1185.134mil|Location2.X=1192.801mil|Location1.Y=481.151mil|Location2.Y=488.817mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R30" (27.661mm,11.049mm) on Top Overlay And Track (30.34mm,10.668mm)(30.34mm,12.7mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1233.326mil|Location2.X=1244.576mil|Location1.Y=421.344mil|Location2.Y=432.594mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1233.326mil|Location2.X=1244.576mil|Location1.Y=421.344mil|Location2.Y=432.594mil|Absolute=True">Silk To Silk Clearance Constraint: (0.154mm &lt; 0.254mm) Between Text "R30" (27.661mm,11.049mm) on Top Overlay And Track (30.34mm,10.668mm)(36.436mm,10.668mm) on Top Overlay Silk Text to Silk Clearance [0.154mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1215.125mil|Location2.X=1222.791mil|Location1.Y=491.147mil|Location2.Y=498.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1215.125mil|Location2.X=1222.791mil|Location1.Y=491.147mil|Location2.Y=498.814mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R30" (27.661mm,11.049mm) on Top Overlay And Track (30.34mm,12.7mm)(36.436mm,12.7mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3485.903mil|Location2.X=3498.235mil|Location1.Y=784.811mil|Location2.Y=796.061mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3485.903mil|Location2.X=3498.235mil|Location1.Y=784.811mil|Location2.Y=796.061mil|Absolute=True">Silk To Silk Clearance Constraint: (0.076mm &lt; 0.254mm) Between Text "R34" (87.833mm,18.415mm) on Top Overlay And Track (88.76mm,20.193mm)(88.76mm,20.955mm) on Top Overlay Silk Text to Silk Clearance [0.076mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4816.183mil|Location2.X=4823.85mil|Location1.Y=2605.113mil|Location2.Y=2612.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4816.183mil|Location2.X=4823.85mil|Location1.Y=2605.113mil|Location2.Y=2612.78mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R6" (122.428mm,66.267mm) on Top Overlay And Track (122.555mm,64.108mm)(122.555mm,70.204mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4901.167mil|Location2.X=4908.833mil|Location1.Y=2657.602mil|Location2.Y=2665.269mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4901.167mil|Location2.X=4908.833mil|Location1.Y=2657.602mil|Location2.Y=2665.269mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R6" (122.428mm,66.267mm) on Top Overlay And Track (124.587mm,64.108mm)(124.587mm,70.204mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4681.183mil|Location2.X=4688.85mil|Location1.Y=2610.113mil|Location2.Y=2617.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4681.183mil|Location2.X=4688.85mil|Location1.Y=2610.113mil|Location2.Y=2617.78mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R7" (118.999mm,66.394mm) on Top Overlay And Track (119.126mm,64.108mm)(119.126mm,70.204mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.167mil|Location2.X=4773.833mil|Location1.Y=2670.094mil|Location2.Y=2677.761mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.167mil|Location2.X=4773.833mil|Location1.Y=2670.094mil|Location2.Y=2677.761mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "R7" (118.999mm,66.394mm) on Top Overlay And Track (121.158mm,64.108mm)(121.158mm,70.204mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=761.154mil|Location2.X=768.82mil|Location1.Y=1417.15mil|Location2.Y=1424.817mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=761.154mil|Location2.X=768.82mil|Location1.Y=1417.15mil|Location2.Y=1424.817mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SW1" (18.415mm,34.823mm) on Top Overlay And Track (19.418mm,36.068mm)(20.18mm,36.068mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=790.655mil|Location2.X=798.322mil|Location1.Y=1376.674mil|Location2.Y=1384.341mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=790.655mil|Location2.X=798.322mil|Location1.Y=1376.674mil|Location2.Y=1384.341mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SW1" (18.415mm,34.823mm) on Top Overlay And Track (20.18mm,35.052mm)(20.18mm,37.084mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=790.401mil|Location2.X=798.068mil|Location1.Y=1376.42mil|Location2.Y=1384.087mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=790.401mil|Location2.X=798.068mil|Location1.Y=1376.42mil|Location2.Y=1384.087mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SW1" (18.415mm,34.823mm) on Top Overlay And Track (20.18mm,35.052mm)(26.276mm,35.052mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1956.163mil|Location2.X=1963.83mil|Location1.Y=3540.662mil|Location2.Y=3548.328mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1956.163mil|Location2.X=1963.83mil|Location1.Y=3540.662mil|Location2.Y=3548.328mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "U6" (47.574mm,88.671mm) on Top Overlay And Track (49.784mm,90.03mm)(50.546mm,90.03mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1976.39mil|Location2.X=1987.64mil|Location1.Y=3545.356mil|Location2.Y=3556.606mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1976.39mil|Location2.X=1987.64mil|Location1.Y=3545.356mil|Location2.Y=3556.606mil|Absolute=True">Silk To Silk Clearance Constraint: (0.206mm &lt; 0.254mm) Between Text "U6" (47.574mm,88.671mm) on Top Overlay And Track (50.546mm,89.014mm)(50.546mm,91.046mm) on Top Overlay Silk Text to Silk Clearance [0.206mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1976.39mil|Location2.X=1987.64mil|Location1.Y=3498.863mil|Location2.Y=3510.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\Mi unidad\Sync 1Q2026\Drillbotics\Placa_Final_Embebidos\Placa_Final_Embebidos.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1976.39mil|Location2.X=1987.64mil|Location1.Y=3498.863mil|Location2.Y=3510.113mil|Absolute=True">Silk To Silk Clearance Constraint: (0.206mm &lt; 0.254mm) Between Text "U6" (47.574mm,88.671mm) on Top Overlay And Track (50.546mm,89.014mm)(56.642mm,89.014mm) on Top Overlay Silk Text to Silk Clearance [0.206mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

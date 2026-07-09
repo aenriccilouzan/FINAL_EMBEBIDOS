@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=DIG0 Pin=R3-1
+Removed Pin From Net: NetName=DIG1 Pin=R11-1
+Removed Pin From Net: NetName=DIG2 Pin=R15-1
+Removed Pin From Net: NetName=DIG3 Pin=R18-1
+Added Pin To Net: NetName=DIG3 Pin=R3-1
+Added Pin To Net: NetName=DIG2 Pin=R11-1
+Added Pin To Net: NetName=DIG1 Pin=R15-1
+Added Pin To Net: NetName=DIG0 Pin=R18-1
+Added Member To Class: ClassName=Placa_Final_Embebidos_Hoja2 Member=Component DS1
+Added Member To Class: ClassName=Placa_Final_Embebidos_Hoja2 Member=Component DS3

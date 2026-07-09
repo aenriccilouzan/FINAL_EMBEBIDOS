@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=CLOCK_TM Pin=U1-56
+Removed Pin From Net: NetName=ENABLE_TM Pin=U1-58
+Added Pin To Net: NetName=ENABLE_TM Pin=U1-53
+Added Pin To Net: NetName=CLOCK_TM Pin=U1-55
