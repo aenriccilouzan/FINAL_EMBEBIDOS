@@ -72,6 +72,7 @@ STATE administrador[] = {
 
 STATE agregar_id_usuario[] = {
 		{APRETO_BOTON, id_encoder_nuevo, reset_encoder},
+		{VALIDO_ID, decision_longitud_pin, ir_a_cant_dig_pin},
 		{PASO_TARJETA,decision_longitud_pin, inicio_a_id_completo},
 		{FIN_TABLA, agregar_id_usuario, do_nothing}
 };
