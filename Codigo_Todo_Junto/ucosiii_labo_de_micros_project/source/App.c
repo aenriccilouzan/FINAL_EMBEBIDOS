@@ -140,6 +140,14 @@ void App_Init(void)
      //Inicializar displays
      iniciar_display();
 
+     gpioMode(PIN_LED_BLUE, OUTPUT);
+     gpioWrite(PIN_LED_BLUE,HIGH);
+
+     gpioMode(PIN_LED_RED, OUTPUT);
+     gpioWrite(PIN_LED_RED,HIGH);
+
+     gpioMode(PIN_LED_GREEN, OUTPUT);
+     gpioWrite(PIN_LED_GREEN,HIGH);
      //inicializamos la tarjeta
      inicializar_tarjeta();
      NVIC_SetPriority(PORTB_IRQn, 5);
