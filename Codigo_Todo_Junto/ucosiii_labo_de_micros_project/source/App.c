@@ -99,6 +99,7 @@ int brillo_actual= BRILLO_REGULAR;
  * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE
  ******************************************************************************/
 bool chequear_espacio_user(void);
+bool chequear_espacio_user_tarjeta(void);
 void cambiar_estado_Boton (bool);
 void inicio_a_id_completo(void);
 void fun_timer_encoder(void);
@@ -152,7 +153,7 @@ void App_Init(void)
      inicializar_tarjeta();
      NVIC_SetPriority(PORTB_IRQn, 5);
 
-     id_sleep = timerStart(20000, TIM_MODE_PERIODIC_CRITICAL, sleep_reset);
+     id_sleep = timerStart(10000, TIM_MODE_PERIODIC_CRITICAL, sleep_reset);
 
      atender_llamada_usuario("HOLA", false, brillo_actual);
      boton_encoder_presionado=enconderInit(&cambiar_estado_Boton);
@@ -532,7 +533,7 @@ int revisar_eventos(uint8_t evento)
 				}
 			}
 			if (j == MAX_USERS){
-				if(chequear_espacio_user())
+				if(chequear_espacio_user_tarjeta())
 					return VALIDO_ID;
 				else
 					return NO_VALIDO_ID;
@@ -583,7 +584,8 @@ int revisar_eventos(uint8_t evento)
 	}
 	else if (p2state == decision_longitud_pin)
 	{
-		 if (evento == GIROENCODER_CAMBIO) menu_nuevo_pin();
+		 if (evento == GIROENCODER_CAMBIO)
+			 menu_nuevo_pin();
 		 if(decision_tomada==true)
 		 {
 			decision_tomada=false;
@@ -1407,6 +1409,24 @@ bool chequear_espacio_user(void)
 	}
 	return false;
 }
+
+bool chequear_espacio_user_tarjeta(void)
+{
+	for(int i=0; i<MAX_USERS; i++)
+	{
+			if(usuarios[i].no_espacio_disponible==false)
+			{
+				for(int j=0; j<CANT_DIGITOS_ID; j++)
+					usuarios[i].id[j]=pan_recibido[j];
+
+				usuarios[i].no_espacio_disponible=true;
+				usuario_agregado = i;
+				return true;
+			}
+	}
+	return false;
+}
+
 void imprimir_pin(void)
 {
 	usuario_agregado=0;
