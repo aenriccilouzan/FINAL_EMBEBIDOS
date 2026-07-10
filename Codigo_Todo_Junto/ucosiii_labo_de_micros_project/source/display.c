@@ -232,6 +232,7 @@ void callback_desplazamiento(){
 void prender_ledcitos(int led_informantes)
 {
 	led_informante= led_informantes;
+	gpioWrite(PIN_LED_RED, !led_informantes);
 	callback_actualizar_display ();
 }
 

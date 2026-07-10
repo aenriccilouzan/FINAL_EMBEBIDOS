@@ -193,7 +193,7 @@ void App_Init(void)
  	usuarios[2].es_un_pez_gordo=true;
  	usuarios[2].no_espacio_disponible=true;
 
- 	//usuario normal del 2do piso
+ 	//admin del 2do piso
 	usuarios[3].id[0]='4';
 	usuarios[3].id[1]='5';
 	usuarios[3].id[2]='4';
@@ -208,10 +208,10 @@ void App_Init(void)
 	usuarios[3].pin[2]='0';
 	usuarios[3].pin[3]='2';
 
-	usuarios[3].es_un_pez_gordo=false;
+	usuarios[3].es_un_pez_gordo=true;
 	usuarios[3].no_espacio_disponible=true;
 
-	//usuario normal del 2do piso
+	//admin del 3er piso
 	usuarios[4].id[0]='4';
 	usuarios[4].id[1]='6';
 	usuarios[4].id[2]='6';
@@ -226,8 +226,62 @@ void App_Init(void)
 	usuarios[4].pin[2]='0';
 	usuarios[4].pin[3]='3';
 
-	usuarios[4].es_un_pez_gordo=false;
+	usuarios[4].es_un_pez_gordo=true;
 	usuarios[4].no_espacio_disponible=true;
+
+	//usuario normal del 1er piso
+	usuarios[5].id[0]='5';
+	usuarios[5].id[1]='5';
+	usuarios[5].id[2]='4';
+	usuarios[5].id[3]='2';
+	usuarios[5].id[4]='8';
+	usuarios[5].id[5]='8';
+	usuarios[5].id[6]='0';
+	usuarios[5].id[7]='0';
+
+	usuarios[5].pin[0]='0';
+	usuarios[5].pin[1]='0';
+	usuarios[5].pin[2]='0';
+	usuarios[5].pin[3]='1';
+
+	usuarios[5].es_un_pez_gordo=false;
+	usuarios[5].no_espacio_disponible=true;
+
+	//usuario normal del 2do piso
+	usuarios[6].id[0]='4';
+	usuarios[6].id[1]='5';
+	usuarios[6].id[2]='1';
+	usuarios[6].id[3]='3';
+	usuarios[6].id[4]='7';
+	usuarios[6].id[5]='7';
+	usuarios[6].id[6]='2';
+	usuarios[6].id[7]='7';
+
+	usuarios[6].pin[0]='0';
+	usuarios[6].pin[1]='0';
+	usuarios[6].pin[2]='0';
+	usuarios[6].pin[3]='2';
+
+	usuarios[6].es_un_pez_gordo=false;
+	usuarios[6].no_espacio_disponible=true;
+
+	//usuario normal del 3er piso
+	usuarios[7].id[0]='4';
+	usuarios[7].id[1]='7';
+	usuarios[7].id[2]='0';
+	usuarios[7].id[3]='4';
+	usuarios[7].id[4]='5';
+	usuarios[7].id[5]='5';
+	usuarios[7].id[6]='0';
+	usuarios[7].id[7]='0';
+
+	usuarios[7].pin[0]='0';
+	usuarios[7].pin[1]='0';
+	usuarios[7].pin[2]='0';
+	usuarios[7].pin[3]='3';
+
+	usuarios[7].es_un_pez_gordo=false;
+	usuarios[7].no_espacio_disponible=true;
 
 //	gpioMode(PIN_LED_BLUE, OUTPUT);
 //	gpioWrite(PIN_LED_BLUE,HIGH);
