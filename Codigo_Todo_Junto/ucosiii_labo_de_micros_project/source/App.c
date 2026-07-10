@@ -407,6 +407,27 @@ int revisar_eventos(uint8_t evento)
 							OS_OPT_POST_FIFO,
 							&os_err);
 						break;
+					case 5:
+						OSQPost(&AppQ,
+							&cmd_piso1,
+							sizeof(char),
+							OS_OPT_POST_FIFO,
+							&os_err);
+						break;
+					case 6:
+						OSQPost(&AppQ,
+							&cmd_piso2,
+							sizeof(char),
+							OS_OPT_POST_FIFO,
+							&os_err);
+						break;
+					case 7:
+						OSQPost(&AppQ,
+							&cmd_piso3,
+							sizeof(char),
+							OS_OPT_POST_FIFO,
+							&os_err);
+						break;
 				}
 
 
