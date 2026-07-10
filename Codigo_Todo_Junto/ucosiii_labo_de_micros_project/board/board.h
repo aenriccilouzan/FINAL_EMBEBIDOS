@@ -19,6 +19,8 @@
 * Copiado de nuestro propio board.h
 ******************************************************************************/
 
+#define MODE_SHIFT
+
 #define PINES_SHIFT  { \
     PORTNUM2PIN(PC,16), \
     PORTNUM2PIN(PC,1), \

@@ -201,8 +201,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x3c ./source/rtos/uCOSIII/src/uCOS-III/Source/os_int.o
  .debug_macro   0x00000000       0x35 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_int.o
  .debug_macro   0x00000000      0x2be ./source/rtos/uCOSIII/src/uCOS-III/Source/os_int.o
- .debug_line    0x00000000      0x3bd ./source/rtos/uCOSIII/src/uCOS-III/Source/os_int.o
- .debug_str     0x00000000     0x88fc ./source/rtos/uCOSIII/src/uCOS-III/Source/os_int.o
+ .debug_line    0x00000000      0x4d7 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_int.o
+ .debug_str     0x00000000     0x892b ./source/rtos/uCOSIII/src/uCOS-III/Source/os_int.o
  .comment       0x00000000       0x45 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_int.o
  .ARM.attributes
                 0x00000000       0x34 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_int.o
@@ -683,8 +683,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_c.o
  .debug_macro   0x00000000      0x5f8 ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_c.o
  .debug_macro   0x00000000       0x3c ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_c.o
- .debug_line    0x00000000      0x687 ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_c.o
- .debug_str     0x00000000     0x73e4 ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_c.o
+ .debug_line    0x00000000      0x743 ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_c.o
+ .debug_str     0x00000000     0x7413 ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_c.o
  .comment       0x00000000       0x45 ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_c.o
  .debug_frame   0x00000000      0x118 ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_c.o
  .ARM.attributes
@@ -3562,82 +3562,82 @@ LOAD linker stubs
  .debug_macro   0x00013eb3       0x29 ./SDK/startup/startup_mk64f12.o
  .debug_macro   0x00013edc       0x84 ./SDK/CMSIS/system_MK64F12.o
 
-.debug_line     0x00000000     0xf768
- .debug_line    0x00000000      0x3e6 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_cfg_app.o
- .debug_line    0x000003e6      0xda2 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_core.o
- .debug_line    0x00001188      0x41a ./source/rtos/uCOSIII/src/uCOS-III/Source/os_dbg.o
- .debug_line    0x000015a2      0x961 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_flag.o
- .debug_line    0x00001f03      0x53c ./source/rtos/uCOSIII/src/uCOS-III/Source/os_mem.o
- .debug_line    0x0000243f      0x585 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_msg.o
- .debug_line    0x000029c4      0x832 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_mutex.o
- .debug_line    0x000031f6      0x5c8 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_pend_multi.o
- .debug_line    0x000037be      0x47d ./source/rtos/uCOSIII/src/uCOS-III/Source/os_prio.o
- .debug_line    0x00003c3b      0x7c2 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_q.o
- .debug_line    0x000043fd      0x7e2 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_sem.o
- .debug_line    0x00004bdf      0x638 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_stat.o
- .debug_line    0x00005217      0xf01 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_task.o
- .debug_line    0x00006118      0x70e ./source/rtos/uCOSIII/src/uCOS-III/Source/os_tick.o
- .debug_line    0x00006826      0x61a ./source/rtos/uCOSIII/src/uCOS-III/Source/os_time.o
- .debug_line    0x00006e40      0x86f ./source/rtos/uCOSIII/src/uCOS-III/Source/os_tmr.o
- .debug_line    0x000076af      0x3bd ./source/rtos/uCOSIII/src/uCOS-III/Source/os_var.o
- .debug_line    0x00007a6c       0xe3 ./source/rtos/uCOSIII/src/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu_a.o
- .debug_line    0x00007b4f      0x65d ./source/rtos/uCOSIII/src/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu_c.o
- .debug_line    0x000081ac       0x8c ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_a.o
- .debug_line    0x00008238      0x4cb ./source/rtos/uCOSIII/src/uC-CPU/cpu_core.o
- .debug_line    0x00008703      0x39e ./source/rtos/uCOSIII/BSP/cpu_bsp.o
- .debug_line    0x00008aa1     0x1587 ./source/App.o
- .debug_line    0x0000a028      0x5fc ./source/SysTick.o
- .debug_line    0x0000a624      0x455 ./source/display.o
- .debug_line    0x0000aa79      0x6c9 ./source/encoder.o
- .debug_line    0x0000b142       0x9e ./source/fsm.o
- .debug_line    0x0000b1e0      0x8c3 ./source/gpio.o
- .debug_line    0x0000baa3      0x6b0 ./source/main.o
- .debug_line    0x0000c153      0x6ef ./source/tarjeta_magnetica.o
- .debug_line    0x0000c842      0x338 ./source/timer.o
- .debug_line    0x0000cb7a      0x334 ./SDK/startup/hardware.o
- .debug_line    0x0000ceae       0x5f ./SDK/startup/semihost_hardfault.o
- .debug_line    0x0000cf0d      0xa0d ./SDK/startup/startup_mk64f12.o
- .debug_line    0x0000d91a      0x324 ./SDK/CMSIS/system_MK64F12.o
- .debug_line    0x0000dc3e     0x1b2a C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
+.debug_line     0x00000000    0x11350
+ .debug_line    0x00000000      0x500 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_cfg_app.o
+ .debug_line    0x00000500      0xebc ./source/rtos/uCOSIII/src/uCOS-III/Source/os_core.o
+ .debug_line    0x000013bc      0x534 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_dbg.o
+ .debug_line    0x000018f0      0xa7b ./source/rtos/uCOSIII/src/uCOS-III/Source/os_flag.o
+ .debug_line    0x0000236b      0x656 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_mem.o
+ .debug_line    0x000029c1      0x69f ./source/rtos/uCOSIII/src/uCOS-III/Source/os_msg.o
+ .debug_line    0x00003060      0x94c ./source/rtos/uCOSIII/src/uCOS-III/Source/os_mutex.o
+ .debug_line    0x000039ac      0x6e2 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_pend_multi.o
+ .debug_line    0x0000408e      0x597 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_prio.o
+ .debug_line    0x00004625      0x8dc ./source/rtos/uCOSIII/src/uCOS-III/Source/os_q.o
+ .debug_line    0x00004f01      0x8fc ./source/rtos/uCOSIII/src/uCOS-III/Source/os_sem.o
+ .debug_line    0x000057fd      0x752 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_stat.o
+ .debug_line    0x00005f4f     0x101b ./source/rtos/uCOSIII/src/uCOS-III/Source/os_task.o
+ .debug_line    0x00006f6a      0x828 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_tick.o
+ .debug_line    0x00007792      0x734 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_time.o
+ .debug_line    0x00007ec6      0x989 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_tmr.o
+ .debug_line    0x0000884f      0x4d7 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_var.o
+ .debug_line    0x00008d26       0xe3 ./source/rtos/uCOSIII/src/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu_a.o
+ .debug_line    0x00008e09      0x777 ./source/rtos/uCOSIII/src/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu_c.o
+ .debug_line    0x00009580       0x8c ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_a.o
+ .debug_line    0x0000960c      0x587 ./source/rtos/uCOSIII/src/uC-CPU/cpu_core.o
+ .debug_line    0x00009b93      0x45a ./source/rtos/uCOSIII/BSP/cpu_bsp.o
+ .debug_line    0x00009fed     0x16a1 ./source/App.o
+ .debug_line    0x0000b68e      0x716 ./source/SysTick.o
+ .debug_line    0x0000bda4      0x455 ./source/display.o
+ .debug_line    0x0000c1f9      0x7e3 ./source/encoder.o
+ .debug_line    0x0000c9dc       0x9e ./source/fsm.o
+ .debug_line    0x0000ca7a      0x9dd ./source/gpio.o
+ .debug_line    0x0000d457      0x7ca ./source/main.o
+ .debug_line    0x0000dc21      0x809 ./source/tarjeta_magnetica.o
+ .debug_line    0x0000e42a      0x338 ./source/timer.o
+ .debug_line    0x0000e762      0x334 ./SDK/startup/hardware.o
+ .debug_line    0x0000ea96       0x5f ./SDK/startup/semihost_hardfault.o
+ .debug_line    0x0000eaf5      0xa0d ./SDK/startup/startup_mk64f12.o
+ .debug_line    0x0000f502      0x324 ./SDK/CMSIS/system_MK64F12.o
+ .debug_line    0x0000f826     0x1b2a C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
 
-.debug_str      0x00000000    0x8346c
- .debug_str     0x00000000    0x8346c ./source/rtos/uCOSIII/src/uCOS-III/Source/os_cfg_app.o
-                               0x90da (size before relaxing)
- .debug_str     0x0008346c     0xa0f7 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_core.o
- .debug_str     0x0008346c     0x9323 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_dbg.o
- .debug_str     0x0008346c     0x9c33 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_flag.o
- .debug_str     0x0008346c     0x96fa ./source/rtos/uCOSIII/src/uCOS-III/Source/os_mem.o
- .debug_str     0x0008346c     0x9702 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_msg.o
- .debug_str     0x0008346c     0x9c57 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_mutex.o
- .debug_str     0x0008346c     0x9b42 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_pend_multi.o
- .debug_str     0x0008346c     0x898c ./source/rtos/uCOSIII/src/uCOS-III/Source/os_prio.o
- .debug_str     0x0008346c     0x9be8 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_q.o
- .debug_str     0x0008346c     0x9baa ./source/rtos/uCOSIII/src/uCOS-III/Source/os_sem.o
- .debug_str     0x0008346c     0x9d17 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_stat.o
- .debug_str     0x0008346c     0x9ed4 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_task.o
- .debug_str     0x0008346c     0x9c4b ./source/rtos/uCOSIII/src/uCOS-III/Source/os_tick.o
- .debug_str     0x0008346c     0x9c05 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_time.o
- .debug_str     0x0008346c     0x9d94 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_tmr.o
- .debug_str     0x0008346c     0x9293 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_var.o
- .debug_str     0x0008346c       0xbb ./source/rtos/uCOSIII/src/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu_a.o
- .debug_str     0x0008346c     0x9026 ./source/rtos/uCOSIII/src/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu_c.o
- .debug_str     0x0008346c       0xa8 ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_a.o
- .debug_str     0x0008346c     0x741b ./source/rtos/uCOSIII/src/uC-CPU/cpu_core.o
- .debug_str     0x0008346c     0x7e89 ./source/rtos/uCOSIII/BSP/cpu_bsp.o
- .debug_str     0x0008346c    0x7e876 ./source/App.o
- .debug_str     0x0008346c    0x7e5ff ./source/SysTick.o
- .debug_str     0x0008346c     0x440e ./source/display.o
- .debug_str     0x0008346c     0xa9e5 ./source/encoder.o
- .debug_str     0x0008346c     0x3295 ./source/fsm.o
- .debug_str     0x0008346c    0x7d04f ./source/gpio.o
- .debug_str     0x0008346c    0x7eb09 ./source/main.o
- .debug_str     0x0008346c     0xa9d2 ./source/tarjeta_magnetica.o
- .debug_str     0x0008346c     0x3c6b ./source/timer.o
- .debug_str     0x0008346c    0x77909 ./SDK/startup/hardware.o
- .debug_str     0x0008346c     0x2edf ./SDK/startup/semihost_hardfault.o
- .debug_str     0x0008346c     0x376b ./SDK/startup/startup_mk64f12.o
- .debug_str     0x0008346c    0x7728a ./SDK/CMSIS/system_MK64F12.o
- .debug_str     0x0008346c      0x38f C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
+.debug_str      0x00000000    0x8349b
+ .debug_str     0x00000000    0x8349b ./source/rtos/uCOSIII/src/uCOS-III/Source/os_cfg_app.o
+                               0x9109 (size before relaxing)
+ .debug_str     0x0008349b     0xa126 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_core.o
+ .debug_str     0x0008349b     0x9352 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_dbg.o
+ .debug_str     0x0008349b     0x9c62 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_flag.o
+ .debug_str     0x0008349b     0x9729 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_mem.o
+ .debug_str     0x0008349b     0x9731 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_msg.o
+ .debug_str     0x0008349b     0x9c86 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_mutex.o
+ .debug_str     0x0008349b     0x9b71 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_pend_multi.o
+ .debug_str     0x0008349b     0x89bb ./source/rtos/uCOSIII/src/uCOS-III/Source/os_prio.o
+ .debug_str     0x0008349b     0x9c17 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_q.o
+ .debug_str     0x0008349b     0x9bd9 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_sem.o
+ .debug_str     0x0008349b     0x9d46 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_stat.o
+ .debug_str     0x0008349b     0x9f03 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_task.o
+ .debug_str     0x0008349b     0x9c7a ./source/rtos/uCOSIII/src/uCOS-III/Source/os_tick.o
+ .debug_str     0x0008349b     0x9c34 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_time.o
+ .debug_str     0x0008349b     0x9dc3 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_tmr.o
+ .debug_str     0x0008349b     0x92c2 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_var.o
+ .debug_str     0x0008349b       0xea ./source/rtos/uCOSIII/src/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu_a.o
+ .debug_str     0x0008349b     0x9055 ./source/rtos/uCOSIII/src/uCOS-III/Ports/ARM-Cortex-M4/Generic/GNU/os_cpu_c.o
+ .debug_str     0x0008349b       0xd7 ./source/rtos/uCOSIII/src/uC-CPU/ARM-Cortex-M4/GNU/cpu_a.o
+ .debug_str     0x0008349b     0x744a ./source/rtos/uCOSIII/src/uC-CPU/cpu_core.o
+ .debug_str     0x0008349b     0x7eb8 ./source/rtos/uCOSIII/BSP/cpu_bsp.o
+ .debug_str     0x0008349b    0x7e8a5 ./source/App.o
+ .debug_str     0x0008349b    0x7e62e ./source/SysTick.o
+ .debug_str     0x0008349b     0x443d ./source/display.o
+ .debug_str     0x0008349b     0xaa14 ./source/encoder.o
+ .debug_str     0x0008349b     0x32c4 ./source/fsm.o
+ .debug_str     0x0008349b    0x7d07e ./source/gpio.o
+ .debug_str     0x0008349b    0x7eb38 ./source/main.o
+ .debug_str     0x0008349b     0xaa01 ./source/tarjeta_magnetica.o
+ .debug_str     0x0008349b     0x3c9a ./source/timer.o
+ .debug_str     0x0008349b    0x77938 ./SDK/startup/hardware.o
+ .debug_str     0x0008349b     0x2f0e ./SDK/startup/semihost_hardfault.o
+ .debug_str     0x0008349b     0x379a ./SDK/startup/startup_mk64f12.o
+ .debug_str     0x0008349b    0x772b9 ./SDK/CMSIS/system_MK64F12.o
+ .debug_str     0x0008349b      0x38f C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
 
 .comment        0x00000000       0x44
  .comment       0x00000000       0x44 ./source/rtos/uCOSIII/src/uCOS-III/Source/os_cfg_app.o

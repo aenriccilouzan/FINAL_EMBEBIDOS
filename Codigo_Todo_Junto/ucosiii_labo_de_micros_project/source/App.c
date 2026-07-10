@@ -46,6 +46,8 @@ static char cmd_piso3 = 'C';
 define VALIDO_ID 1
 */
 
+extern uint8_t pan_recibido[SIZE_PAN];
+
 struct usuario
 {
 	char id[CANT_DIGITOS_ID];
@@ -140,15 +142,16 @@ void App_Init(void)
 
      //inicializamos la tarjeta
      inicializar_tarjeta();
+     NVIC_SetPriority(PORTB_IRQn, 5);
 
-     id_sleep = timerStart(10000, TIM_MODE_PERIODIC_CRITICAL, sleep_reset);
+     id_sleep = timerStart(20000, TIM_MODE_PERIODIC_CRITICAL, sleep_reset);
 
      atender_llamada_usuario("HOLA", false, brillo_actual);
      boton_encoder_presionado=enconderInit(&cambiar_estado_Boton);
 
  	//p2state=FSM_GetInitState();
      p2state=inicio;
- 	//primer usuario
+ 	//primer usuario de testing usuario normal
 	for(int i=0; i<CANT_DIGITOS_ID;i++)
 		usuarios[1].id[i]=i+'1';
  	for(int i=0; i<CANT_DIGITOS_PIN-1; i++)
@@ -156,7 +159,7 @@ void App_Init(void)
  	usuarios[1].es_un_pez_gordo=false;
  	usuarios[1].no_espacio_disponible=true;
 
- 	//segundo usuario
+ 	//segundo usuario de testing admin
  	for(int i=0; i<CANT_DIGITOS_ID;i++)
 		usuarios[0].id[i]=i+'0';
  	for(int i=0; i<CANT_DIGITOS_PIN; i++)
@@ -164,6 +167,7 @@ void App_Init(void)
  	usuarios[0].es_un_pez_gordo=true;
  	usuarios[0].no_espacio_disponible=true;
 
+ 	//admin del 1er piso
  	usuarios[2].id[0]='6';
  	usuarios[2].id[1]='0';
  	usuarios[2].id[2]='6';
@@ -171,16 +175,51 @@ void App_Init(void)
  	usuarios[2].id[4]='2';
  	usuarios[2].id[5]='6';
  	usuarios[2].id[6]='8';
- 	usuarios[2].id[7]='4';
+ 	usuarios[2].id[7]='3';
 
  	usuarios[2].pin[0]='0';
  	usuarios[2].pin[1]='0';
  	usuarios[2].pin[2]='0';
  	usuarios[2].pin[3]='1';
 
-
  	usuarios[2].es_un_pez_gordo=true;
  	usuarios[2].no_espacio_disponible=true;
+
+ 	//usuario normal del 2do piso
+	usuarios[3].id[0]='4';
+	usuarios[3].id[1]='5';
+	usuarios[3].id[2]='4';
+	usuarios[3].id[3]='6';
+	usuarios[3].id[4]='4';
+	usuarios[3].id[5]='0';
+	usuarios[3].id[6]='0';
+	usuarios[3].id[7]='0';
+
+	usuarios[3].pin[0]='0';
+	usuarios[3].pin[1]='0';
+	usuarios[3].pin[2]='0';
+	usuarios[3].pin[3]='2';
+
+	usuarios[3].es_un_pez_gordo=false;
+	usuarios[3].no_espacio_disponible=true;
+
+	//usuario normal del 2do piso
+	usuarios[4].id[0]='4';
+	usuarios[4].id[1]='6';
+	usuarios[4].id[2]='6';
+	usuarios[4].id[3]='0';
+	usuarios[4].id[4]='5';
+	usuarios[4].id[5]='7';
+	usuarios[4].id[6]='0';
+	usuarios[4].id[7]='0';
+
+	usuarios[4].pin[0]='0';
+	usuarios[4].pin[1]='0';
+	usuarios[4].pin[2]='0';
+	usuarios[4].pin[3]='3';
+
+	usuarios[4].es_un_pez_gordo=false;
+	usuarios[4].no_espacio_disponible=true;
 
 //	gpioMode(PIN_LED_BLUE, OUTPUT);
 //	gpioWrite(PIN_LED_BLUE,HIGH);
@@ -217,7 +256,7 @@ int revisar_eventos(uint8_t evento)
 		if(evento== LECTOR_TARJETA_CAMBIO)
 		{
 			inicio_a_id_completo();
-			num_id_activo=revisar_id(data_encoder);
+			num_id_activo=revisar_id(pan_recibido);
 			if (num_id_activo == NO_VALIDO_ID){
 				return NO_VALIDO_ID;
 			}
@@ -260,51 +299,72 @@ int revisar_eventos(uint8_t evento)
 	}
 	else if (p2state == pin_completo) {
 		static int lleno_pin=0;
-		if (evento == GIROENCODER_CAMBIO)giro_encoder();
+		if (evento == GIROENCODER_CAMBIO)
+			giro_encoder();
 			//evento_a_devolver_1 = atender_llamado_encoder();
 			//if(evento_a_devolver_1 != VACIO)
 			//	return FIN_TABLA;
 
-			if (digito_activo == tamanio)
-			{
-				digito_activo = 0;
-				lleno_pin = LLENO_PIN_ENCODER;
-			}
+		if (digito_activo == tamanio)
+		{
+			digito_activo = 0;
+			lleno_pin = LLENO_PIN_ENCODER;
+		}
 
-			if (lleno_pin == LLENO_PIN_ENCODER) {
-				lleno_pin=0;
-				int pin_activo = 0;
-				pin_activo = revisar_pin(data_encoder); //esta mal el nombre data_encoder xq tambi[en es de la tarjeta.
-				if (pin_activo == NO_VALIDO_PIN)
-					return NO_VALIDO_PIN;
-				else if (pin_activo == VALIDO_PIN){
-					led_azul_prendido();
+		if (lleno_pin == LLENO_PIN_ENCODER) {
+			lleno_pin=0;
+			int pin_activo = 0;
+			pin_activo = revisar_pin(data_encoder); //esta mal el nombre data_encoder xq tambi[en es de la tarjeta.
+			if (pin_activo == NO_VALIDO_PIN)
+				return NO_VALIDO_PIN;
+			else if (pin_activo == VALIDO_PIN){
+				led_azul_prendido();
 
+				OS_ERR os_err;
+
+				switch(num_id_activo)
+				{
+					case 2:
+						OSQPost(&AppQ,
+							&cmd_piso1,
+							sizeof(char),
+							OS_OPT_POST_FIFO,
+							&os_err);
+						break;
+					case 3:
+						OSQPost(&AppQ,
+							&cmd_piso2,
+							sizeof(char),
+							OS_OPT_POST_FIFO,
+							&os_err);
+						break;
+					case 4:
+						OSQPost(&AppQ,
+							&cmd_piso3,
+							sizeof(char),
+							OS_OPT_POST_FIFO,
+							&os_err);
+						break;
+				}
+
+
+				if(usuarios[num_id_activo].es_un_pez_gordo == true){
+					atender_llamada_usuario("ADMIN", true, brillo_actual);
 					OS_ERR os_err;
-
-					OSQPost(&AppQ,
-					        &cmd_piso1,
-					        sizeof(char),
-					        OS_OPT_POST_FIFO,
-					        &os_err);
-
-					if(usuarios[num_id_activo].es_un_pez_gordo == true){
-						atender_llamada_usuario("ADMIN", true, brillo_actual);
-						OS_ERR os_err;
-						OSTimeDlyHMSM(0u, 0u, 2u, 0u, OS_OPT_TIME_HMSM_STRICT, &os_err);
-						return ADMINISTRADOR;
-					}
-					else{
-						atender_llamada_usuario("USER", false, brillo_actual);
-						OS_ERR os_err;
-						OSTimeDlyHMSM(0u, 0u, 2u, 0u, OS_OPT_TIME_HMSM_STRICT, &os_err);
-						return CLIENTE;
-					}
+					OSTimeDlyHMSM(0u, 0u, 2u, 0u, OS_OPT_TIME_HMSM_STRICT, &os_err);
+					return ADMINISTRADOR;
 				}
 				else{
-					return BLOQUEAR;
+					atender_llamada_usuario("USER", false, brillo_actual);
+					OS_ERR os_err;
+					OSTimeDlyHMSM(0u, 0u, 2u, 0u, OS_OPT_TIME_HMSM_STRICT, &os_err);
+					return CLIENTE;
 				}
 			}
+			else{
+				return BLOQUEAR;
+			}
+		}
 	}
 
 
@@ -981,8 +1041,10 @@ void reiniciar(void)
 }
 void ir_pin_encoder(void)
 {
+	//gpioIRQ(CLOCK_TARJETA_MAGNETICA, GPIO_IRQ_MODE_FALLING_EDGE, &guardar_dato_serie);
+
 	tamanio=0;
-	for(int i=0;usuarios[num_id_activo].pin[i]!=0 && i<CANT_DIGITOS_PIN;i++)
+	for(int i=0;(usuarios[num_id_activo].pin[i]!=0) && (i<CANT_DIGITOS_PIN);i++)
 	{
 		tamanio++;
 	}

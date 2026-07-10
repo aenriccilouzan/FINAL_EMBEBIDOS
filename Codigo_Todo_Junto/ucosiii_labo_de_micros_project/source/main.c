@@ -20,7 +20,7 @@ OS_Q AppQ; // Cola para mandar comandos a la matriz
 
 /* --- CONFIGURACIÓN DE TAREA MATRIZ --- */
 #define TASK_MATRIZ_PRIO         3u
-#define TASK_MATRIZ_STK_SIZE     256u
+#define TASK_MATRIZ_STK_SIZE     512u
 static OS_TCB  TaskMatrizTCB;
 static CPU_STK TaskMatrizStk[TASK_MATRIZ_STK_SIZE];
 
@@ -34,13 +34,13 @@ extern void cambiar_estado_Boton (bool);
 extern STATE* p2state;
 
 /* Task Start */
-#define TASKSTART_STK_SIZE 		512u
+#define TASKSTART_STK_SIZE 		1024u
 #define TASKSTART_PRIO 			2u
 static OS_TCB TaskStartTCB;
 static CPU_STK TaskStartStk[TASKSTART_STK_SIZE];
 
 #define TASK2_PRIO              1u   // PRIORIDAD ALTA para 2kHz
-#define TASK2_STK_SIZE          512u
+#define TASK2_STK_SIZE          1024u
 static OS_TCB   Task2TCB;
 static CPU_STK  Task2Stk[TASK2_STK_SIZE];
 
@@ -51,7 +51,10 @@ void  App_Task2kHz(void *p_arg);
 
 /* --- OBJETOS LOCALES --- */
 OS_PEND_DATA pend_multi_data[3];
+
+
 uint8_t pan_recibido[SIZE_PAN];
+
 
 /* ============================================================================
  * TAREA DE LA MATRIZ DE LEDS (Ex Task 2)
@@ -63,6 +66,8 @@ static void Task_Matriz(void *p_arg) {
     OS_MSG_SIZE msg_size;
     CPU_TS ts;
     char *command_ptr;
+
+    colorWipe(Black,300);
 
     while (1) {
         /* 1. Esperar mensajes en la cola (Modo Bloqueante) */
@@ -153,37 +158,40 @@ static void TaskStart(void *p_arg) {
     OSSemCreate(&sem_enc_giro,  "Sem Giro",  0, &os_err);
     OSSemCreate(&sem_enc_boton, "Sem Boton", 0, &os_err);
 
-    pend_multi_data[0].PendObjPtr = (OS_PEND_OBJ *)&sem_enc_giro;
-    pend_multi_data[1].PendObjPtr = (OS_PEND_OBJ *)&sem_enc_boton;
-    pend_multi_data[2].PendObjPtr = (OS_PEND_OBJ *)&queue_tarjeta;
-
     while (1)
     {
+    	pend_multi_data[0].PendObjPtr = (OS_PEND_OBJ *)&sem_enc_giro;
+    	pend_multi_data[1].PendObjPtr = (OS_PEND_OBJ *)&sem_enc_boton;
+    	pend_multi_data[2].PendObjPtr = (OS_PEND_OBJ *)&queue_tarjeta;
+
+    	OS_ERR os_err2;
     	// Espera Eventos o Timeout (10 ticks) para actualizar timers
-		OSPendMulti(pend_multi_data, 3, 10, OS_OPT_PEND_BLOCKING, &os_err);
-		// A) GIRO
-		if (pend_multi_data[0].RdyObjPtr == (OS_PEND_OBJ*)&sem_enc_giro) {
-			p2state=fsm(p2state,revisar_eventos(GIROENCODER_CAMBIO));
+		OSPendMulti(pend_multi_data, 3, 0, OS_OPT_PEND_BLOCKING, &os_err2);
 
-		}
-		// B) BOTON
-		else if (pend_multi_data[1].RdyObjPtr == (OS_PEND_OBJ*)&sem_enc_boton) {
-			cambiar_estado_Boton(estado_boton);
-			p2state=fsm(p2state,revisar_eventos(PULSADOR_CAMBIO));
-
-		}
-		// C) TARJETA
-		else if (pend_multi_data[2].RdyObjPtr == (OS_PEND_OBJ*)&queue_tarjeta)
-		{
-			// Casteamos a uint8_t* porque ahora solo mandamos el PAN
-			// 1. Agarramos la dirección de memoria que nos manda la cola
-			uint8_t *puntero_temporal = (uint8_t *)pend_multi_data[2].RdyMsgPtr;
-
-			// 2. Copiamos los 19 números a nuestro arreglo real
-			for (int i = 0; i < 19; i++) {
-				pan_recibido[i] = puntero_temporal[i];
+		if (os_err2 == OS_ERR_NONE) {
+			// A) GIRO
+			if (pend_multi_data[0].RdyObjPtr == (OS_PEND_OBJ*)&sem_enc_giro) {
+				p2state=fsm(p2state,revisar_eventos(GIROENCODER_CAMBIO));
 			}
-			p2state=fsm(p2state,revisar_eventos(LECTOR_TARJETA_CAMBIO));
+			// B) BOTON
+			else if (pend_multi_data[1].RdyObjPtr == (OS_PEND_OBJ*)&sem_enc_boton) {
+				cambiar_estado_Boton(estado_boton);
+				p2state=fsm(p2state,revisar_eventos(PULSADOR_CAMBIO));
+			}
+			// C) TARJETA
+
+			else if (pend_multi_data[2].RdyObjPtr == (OS_PEND_OBJ*)&queue_tarjeta)
+			{
+				// Casteamos a uint8_t* porque ahora solo mandamos el PAN
+				// 1. Agarramos la dirección de memoria que nos manda la cola
+				uint8_t *puntero_temporal = (uint8_t *)pend_multi_data[2].RdyMsgPtr;
+
+				// 2. Copiamos los 16 números a nuestro arreglo real
+				for (int i = 0; i < 16; i++) {
+					pan_recibido[i] = puntero_temporal[i];
+				}
+				p2state=fsm(p2state,revisar_eventos(LECTOR_TARJETA_CAMBIO));
+			}
 		}
     }
 }

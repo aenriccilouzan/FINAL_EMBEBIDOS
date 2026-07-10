@@ -184,7 +184,7 @@ void guardar_caracter(void)
             }
         }
 
-        gpioToggle(PIN_LED_RED);
+        //gpioToggle(PIN_LED_RED);
 
         // Además verificamos que no haya saltado la bandera de error durante la lectura de campos
         if(datos_incorrectos == false && datos_tarjeta.error == false)

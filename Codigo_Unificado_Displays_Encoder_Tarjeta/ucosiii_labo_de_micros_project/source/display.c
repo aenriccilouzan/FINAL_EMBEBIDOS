@@ -143,15 +143,13 @@ void atender_llamada_usuario (char palabra [], bool usuario_desplazar, int nivel
 		clear_display();
 		static int que_caracteres;
 		display_activo = DISPLAY_1;
-		#ifdef MODE_SHIFT
-			gpioWrite(pines[PIN_CLOCK_SHIFT_REGISTER], false);
-			gpioWrite(pines[PIN_LATCH], false);
-		#endif
-			for (que_caracteres = 0; (palabra[que_caracteres] != '\0') && (que_caracteres < LONGITUD_PALABRA); ) {
-					que_caracteres++;
-			}//si la palabra es longitud 4 que_caracteres vale 4 (NO 3)
+		gpioWrite(pines[PIN_CLOCK_SHIFT_REGISTER], false);
+		gpioWrite(pines[PIN_LATCH], false);
+		for (que_caracteres = 0; (palabra[que_caracteres] != '\0') && (que_caracteres < LONGITUD_PALABRA); ) {
+				que_caracteres++;
+		}//si la palabra es longitud 4 que_caracteres vale 4 (NO 3)
 
-			longitud_real_palabra = traductor_palabra_a_trama(palabra, (que_caracteres)); //porque queremos no contar el 0
+		longitud_real_palabra = traductor_palabra_a_trama(palabra, (que_caracteres)); //porque queremos no contar el 0
 		//longitud_real_de_la_palabra es con un -1 pero nos sirve
 	}
 	else 	{
