@@ -1,0 +1,2 @@
+Página en la que nos basamos para controlar la matriz:
+- https://mcuoneclipse.com/2015/08/05/tutorial-adafruit-ws2812b-neopixels-with-the-freescale-frdm-k64f-board-part-5-dma/
