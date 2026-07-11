@@ -526,7 +526,7 @@ int revisar_eventos(uint8_t evento)
 			int j;
 			for(j=0;  j<MAX_USERS && validar_id ; j++ )
 			{
-				for(int i=0;usuarios[j].id[i]==data_encoder[i] && i<CANT_DIGITOS_ID; i++)
+				for(int i=0;usuarios[j].id[i]==pan_recibido[i] && i<CANT_DIGITOS_ID; i++)
 				{
 					if(i==CANT_DIGITOS_ID-1)
 						validar_id=false;
@@ -619,6 +619,28 @@ int revisar_eventos(uint8_t evento)
 			for(j=0;  j<MAX_USERS && validar_id ; j++ )
 			{
 				for(int i=0;usuarios[j].id[i]==data_encoder[i] && i<CANT_DIGITOS_ID; i++)
+				{
+					if(i==CANT_DIGITOS_ID-1)
+						validar_id=false;
+				}
+			}
+			if(validar_id || (usuarios[j-1].es_un_pez_gordo==true))
+			{
+				atender_llamada_usuario("USER NO VALIDO", true, brillo_actual);
+				return BORRADO_INVALIDO;
+			}
+			else{
+				borrar_id(j);
+				return BORRADO_COMPLETO;
+			}
+		}
+		else if(evento == LECTOR_TARJETA_CAMBIO)
+		{
+			bool validar_id=true;
+			int j;
+			for(j=0;  j<MAX_USERS && validar_id ; j++ )
+			{
+				for(int i=0;usuarios[j].id[i]==pan_recibido[i] && i<CANT_DIGITOS_ID; i++)
 				{
 					if(i==CANT_DIGITOS_ID-1)
 						validar_id=false;
@@ -1296,6 +1318,7 @@ void ir_a_borrar_usuario(void)
 	atender_llamada_usuario("DEL ID", true, brillo_actual);
 	reset_encoder();
 	bloquear_boton=true;
+	gpioIRQ(CLOCK_TARJETA_MAGNETICA, GPIO_IRQ_MODE_FALLING_EDGE, &guardar_dato_serie);
 }
 
 /*******************************************************************************
