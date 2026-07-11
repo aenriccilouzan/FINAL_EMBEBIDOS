@@ -153,7 +153,7 @@ void App_Init(void)
      inicializar_tarjeta();
      NVIC_SetPriority(PORTB_IRQn, 5);
 
-     id_sleep = timerStart(10000, TIM_MODE_PERIODIC_CRITICAL, sleep_reset);
+     id_sleep = timerStart(15000, TIM_MODE_PERIODIC_CRITICAL, sleep_reset);
 
      atender_llamada_usuario("HOLA", false, brillo_actual);
      boton_encoder_presionado=enconderInit(&cambiar_estado_Boton);
