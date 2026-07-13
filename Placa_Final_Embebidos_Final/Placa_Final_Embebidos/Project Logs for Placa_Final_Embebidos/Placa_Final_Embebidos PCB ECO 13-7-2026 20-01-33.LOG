@@ -1,0 +1,78 @@
+Removed Pin From Net: NetName=RESET_B Pin=SW1-1
+Removed Member From Class: ClassName=Placa_Final_Embebidos_Hoja3 Member=P3
+Change Component Comment : Designator=R32 Old Comment=1k New Comment=330
+Change Component Comment : Designator=J1 Old Comment=BORNERA 2 New Comment=POWER
+Change Component Comment : Designator=J2 Old Comment=CON3 New Comment=MATRIZ
+Change Component Comment : Designator=P3 Old Comment=Header 5 New Comment=CARD
+Change Component Comment : Designator=P1 Old Comment=Header 5X2 New Comment=JTAG PROG
+Change Component Comment : Designator=J3 Old Comment=JUMPER New Comment=3V3 REF
+Change Component Designator: OldDesignator=C4 NewDesignator=C7
+Change Component Designator: OldDesignator=D1 NewDesignator=D2
+Change Component Designator: OldDesignator=D2 NewDesignator=D3
+Change Component Designator: OldDesignator=D3 NewDesignator=D4
+Change Component Designator: OldDesignator=D4 NewDesignator=D1
+Change Component Designator: OldDesignator=DS1 NewDesignator=DS4
+Change Component Designator: OldDesignator=DS2 NewDesignator=DS3
+Change Component Designator: OldDesignator=DS3 NewDesignator=DS2
+Change Component Designator: OldDesignator=DS4 NewDesignator=DS1
+Change Component Designator: OldDesignator=J2 NewDesignator=J3
+Change Component Designator: OldDesignator=J3 NewDesignator=J2
+Change Component Designator: OldDesignator=P1 NewDesignator=P2
+Change Component Designator: OldDesignator=P3 NewDesignator=P1
+Change Component Designator: OldDesignator=R10 NewDesignator=R11
+Change Component Designator: OldDesignator=R11 NewDesignator=R10
+Change Component Designator: OldDesignator=R21 NewDesignator=R29
+Change Component Designator: OldDesignator=R22 NewDesignator=R23
+Change Component Designator: OldDesignator=R23 NewDesignator=R24
+Change Component Designator: OldDesignator=R24 NewDesignator=R35
+Change Component Designator: OldDesignator=R27 NewDesignator=R36
+Change Component Designator: OldDesignator=R28 NewDesignator=R22
+Change Component Designator: OldDesignator=R29 NewDesignator=R27
+Change Component Designator: OldDesignator=R30 NewDesignator=R28
+Change Component Designator: OldDesignator=R31 NewDesignator=R37
+Change Component Designator: OldDesignator=R32 NewDesignator=R21
+Change Component Designator: OldDesignator=R33 NewDesignator=R30
+Change Component Designator: OldDesignator=R34 NewDesignator=R31
+Change Component Designator: OldDesignator=R35 NewDesignator=R34
+Change Component Designator: OldDesignator=R36 NewDesignator=R32
+Change Component Designator: OldDesignator=R37 NewDesignator=R33
+Change Component Designator: OldDesignator=U1 NewDesignator=U4
+Change Component Designator: OldDesignator=U2 NewDesignator=U1
+Change Component Designator: OldDesignator=U3 NewDesignator=U5
+Change Component Designator: OldDesignator=U4 NewDesignator=U2
+Change Component Designator: OldDesignator=U5 NewDesignator=U3
+Added Component: Designator=C4(CAP200)
+Added Component: Designator=C5(CAP200)
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=3V3 Pin=C4-2
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=3V3 Pin=C5-2
+Added Pin To Net: NetName=RESET_B Pin=SW1-2
+Change Net Name : Old Net Name=ENCODER_A New Net Name=ENC_A
+Change Net Name : Old Net Name=ENCODER_B New Net Name=ENC_B
+Change Net Name : Old Net Name=ENCODER_SW New Net Name=BOTON
+Change Net Name : Old Net Name=NetD1_2 New Net Name=NetD2_2
+Change Net Name : Old Net Name=NetD2_2 New Net Name=NetD3_2
+Change Net Name : Old Net Name=NetD3_2 New Net Name=NetD4_2
+Change Net Name : Old Net Name=NetD4_2 New Net Name=NetD1_2
+Change Net Name : Old Net Name=NetDS1_3 New Net Name=NetDS4_3
+Change Net Name : Old Net Name=NetDS2_3 New Net Name=NetDS3_3
+Change Net Name : Old Net Name=NetDS3_3 New Net Name=NetDS2_3
+Change Net Name : Old Net Name=NetDS4_3 New Net Name=NetDS1_3
+Change Net Name : Old Net Name=NetJ2_2 New Net Name=NetJ3_2
+Change Net Name : Old Net Name=NetJ3_2 New Net Name=NetJ2_2
+Change Net Name : Old Net Name=NetR37_2 New Net Name=NetR33_2
+Change Net Name : Old Net Name=NetU3_9 New Net Name=NetU3_14
+Change Net Name : Old Net Name=NMI_B New Net Name=NetR22_1
+Change Net Name : Old Net Name=RESET_B New Net Name=RESET
+Change Net Name : Old Net Name=SERIAL_LATCH New Net Name=LATCH_CLOCK
+Change Net Name : Old Net Name=SWDCLK New Net Name=JTAG_CLK
+Change Net Name : Old Net Name=SWDIO New Net Name=JTAG_TMS
+Change Net Name : Old Net Name=SWDTRACE New Net Name=JTAG_TDO
+Change Class Name : Old Net Name=Placa_Final_Embebidos_Hoja2 New Net Name=Placa_Final_Embebidos_Displays
+Change Class Name : Old Net Name=Placa_Final_Embebidos_Hoja3 New Net Name=Placa_Final_Embebidos_MCU
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component C5 100nF
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component C7 100nF
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component P2 JTAG PROG
+Added Rule: Name=Schematic Supply Nets_1
+Added Rule: Name=Schematic Supply Nets_2

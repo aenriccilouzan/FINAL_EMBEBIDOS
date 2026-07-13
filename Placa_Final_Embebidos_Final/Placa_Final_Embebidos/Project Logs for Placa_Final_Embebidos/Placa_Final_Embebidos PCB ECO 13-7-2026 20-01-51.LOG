@@ -1,0 +1,20 @@
+Removed Member From Class: ClassName=Placa_Final_Embebidos_Displays Member=U4
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component C4 100nF
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component D1
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component D2
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component D3
+Added Member To Class: ClassName=Placa_Final_Embebidos_Displays Member=Component DS1
+Added Member To Class: ClassName=Placa_Final_Embebidos_Displays Member=Component DS3
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component J3 MATRIZ
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component P1 CARD
+Added Member To Class: ClassName=Placa_Final_Embebidos_Displays Member=Component R11 68
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component R21 330
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component R23 1.8K
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component R24 3.3K
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component R27 1.8K
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component R30 10K
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component R34 10K
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component R36 330
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component R37 330
+Added Member To Class: ClassName=Placa_Final_Embebidos_Displays Member=Component U1 SN74HC139N
+Added Member To Class: ClassName=Placa_Final_Embebidos_MCU Member=Component U5 74HC595
