@@ -67,7 +67,7 @@ GenerateClassCluster=0
 DocumentUniqueId=XXNCVTNO
 
 [Document2]
-DocumentPath=Placa_Final_Embebidos_Hoja2.SchDoc
+DocumentPath=Placa_Final_Embebidos_Displays.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -84,7 +84,7 @@ GenerateClassCluster=0
 DocumentUniqueId=RRQQDHBR
 
 [Document3]
-DocumentPath=Placa_Final_Embebidos_Hoja3.SchDoc
+DocumentPath=Placa_Final_Embebidos_MCU.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
